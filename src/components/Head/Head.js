@@ -5,8 +5,8 @@ import React from "react";
  */
 const Head = ({ headPreview }) => {
   return (
-    <div>
-      <img src={headPreview} />
+    <div className="Head">
+      <img className="Head__img" src={headPreview} />
     </div>
   );
 };
