@@ -14,7 +14,7 @@ import { Legs } from "./components/Legs/Legs";
 /**
  * styles
  */
-import "./index.css";
+import "./index.scss";
 /**
  * svg
  */
@@ -150,14 +150,23 @@ const App = () => {
 
   return (
     <div className="App">
-      <Background />
-      <List list={arrHeadsItems} title="Heads" onItemSelect={setHead} />
-      <List list={arBodiesItems} title="Bodies" onItemSelect={setBody} />
-      <List list={arLegsItems} title="Legs" onItemSelect={setLegs} />
+      {/* <Background /> */}
+      <aside className="App__aside">
+        <List
+          list={arrHeadsItems}
+          title="Heads"
+          isShow
+          onItemSelect={setHead}
+        />
+        <List list={arBodiesItems} title="Bodies" onItemSelect={setBody} />
+        <List list={arLegsItems} title="Legs" onItemSelect={setLegs} />
+      </aside>
 
-      {head && <Head headPreview={head.preview} />}
-      {body && <Body bodyPreview={body.preview} />}
-      {legs && <Legs legsPreview={legs.preview} />}
+      <div className="App__mannequin">
+        {head && <Head headPreview={head.preview} />}
+        {body && <Body bodyPreview={body.preview} />}
+        {legs && <Legs legsPreview={legs.preview} />}
+      </div>
     </div>
   );
 };

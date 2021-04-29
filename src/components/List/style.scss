@@ -1,4 +1,13 @@
 .List {
+  background-color: white;
+  padding: 8px;
+  border-radius: 8px;
+
+  // всем, кроме первого (применяется ко второму)
+  & + & {
+    margin-top: 10px;
+  }
+
   &__wrapper {
     list-style-type: none;
     margin: 0;
@@ -7,9 +16,11 @@
 
   // &  => .List (parent)
   &__item {
+    overflow: hidden;
     display: flex;
     align-items: center;
     cursor: pointer;
+    margin: 0px 0 -4px;
 
     &:hover {
       font-weight: bold;
@@ -17,10 +28,20 @@
   }
 
   &__preview {
-    max-width: 50px;
+    max-width: 34px;
+    margin-right: 8px;
   }
 
   &__title {
     font-size: 20px;
+    cursor: pointer;
+
+    span {
+      border-bottom: 1px dashed #444;
+    }
+
+    :hover {
+      border-bottom: none;
+    }
   }
 }
