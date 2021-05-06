@@ -1,0 +1,12 @@
+.Body {
+  position: absolute;
+  width: 400px;
+  left: 42px;
+  top: 267px;
+  z-index: 1;
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+}
