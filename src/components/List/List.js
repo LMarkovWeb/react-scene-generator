@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 
-function List({ title, list, isShow, onItemSelect }) {
+function List({ list, title, isShow, onItemSelect }) {
   const [isShowState, setShow] = useState(false);
 
   useEffect(() => {
     if (isShow) {
       setShow(true);
     }
-    console.log("isShow :>> ", title, isShow);
+    //console.log("isShow :>> ", title, isShow);
   }, [isShow]);
 
   return (
