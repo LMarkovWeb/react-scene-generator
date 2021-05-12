@@ -1,0 +1,22 @@
+.ColorPicker {
+  background-color: white;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 10px;
+
+  &__title {
+    font-size: 20px;
+    cursor: pointer;
+
+    span {
+      border-bottom: 1px dashed #444;
+    }
+
+    :hover {
+      border-bottom: none;
+    }
+  }
+  &__wrapper {
+    padding: 15px 0 0;
+  }
+}

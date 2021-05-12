@@ -10,10 +10,12 @@ import { List } from "./components/List/List";
 import { Head } from "./components/Head/Head";
 import { Background } from "./components/Background/Background";
 import { Legs } from "./components/Legs/Legs";
+import { Body } from "./components/Body/Body";
 
 /**
  * styles
  */
+import "normalize.css";
 import "./index.scss";
 /**
  * svg
@@ -41,40 +43,40 @@ import girlLegs_2 from "../src/components/Legs/img/Girl-Legs-2.svg";
 import girlLegs_4 from "../src/components/Legs/img/Girl-Legs-4.svg";
 import girlLegs_5 from "../src/components/Legs/img/Girl-Legs-5.svg";
 import girlLegs_6 from "../src/components/Legs/img/Girl-Legs-6.svg";
-import { Body } from "./components/Body/Body";
+import { ColorPicker } from "./components/ColorPicker/ColorPicker";
 
 // List for Head
 const arrHeadsItems = [
   {
-    title: "Girl / Head / 1",
+    title: "Карэ",
     preview: girlHead_1,
   },
   {
-    title: "Girl / Head / 2",
+    title: "Карэ",
     preview: girlHead_2,
   },
   {
-    title: "Girl / Head / 3",
+    title: "Хвостик",
     preview: girlHead_3,
   },
   {
-    title: "Girl / Head / 4",
+    title: "Афро",
     preview: girlHead_4,
   },
   {
-    title: "Girl / Head / 5",
+    title: "Распущенные волосы",
     preview: girlHead_5,
   },
   {
-    title: "Girl / Head / 6",
+    title: "Удлиненное карэ",
     preview: girlHead_6,
   },
   {
-    title: "Girl / Head / 7",
+    title: "Голивудская волна",
     preview: girlHead_7,
   },
   {
-    title: "Girl / Head / 8",
+    title: "Хан",
     preview: girlHead_8,
   },
 ];
@@ -82,35 +84,35 @@ const arrHeadsItems = [
 // List for Body
 const arBodiesItems = [
   {
-    title: "Girl / Body / 1",
+    title: "Пальто",
     preview: girlBody_1,
   },
   {
-    title: "Girl / Body / 2",
+    title: "Кофта",
     preview: girlBody_2,
   },
   {
-    title: "Girl / Body / 3",
+    title: "Кофта",
     preview: girlBody_3,
   },
   {
-    title: "Girl / Body / 4",
+    title: "Футболка",
     preview: girlBody_4,
   },
   {
-    title: "Girl / Body / 5",
+    title: "Топик",
     preview: girlBody_5,
   },
   {
-    title: "Girl / Body / 6",
+    title: "Кофта 3/4",
     preview: girlBody_6,
   },
   {
-    title: "Girl / Body / 7",
+    title: "Кофта",
     preview: girlBody_7,
   },
   {
-    title: "Girl / Body / 8",
+    title: "Футболка",
     preview: girlBody_8,
   },
 ];
@@ -118,23 +120,23 @@ const arBodiesItems = [
 // List for Legs
 const arLegsItems = [
   {
-    title: "Girl / Legs / 1",
+    title: "Широкие штаны",
     preview: girlLegs_1,
   },
   {
-    title: "Girl / Legs / 2",
+    title: "Узкие штаны",
     preview: girlLegs_2,
   },
   {
-    title: "Girl / Legs / 4",
+    title: "Штаны",
     preview: girlLegs_4,
   },
   {
-    title: "Girl / Legs / 5",
+    title: "Юбка",
     preview: girlLegs_5,
   },
   {
-    title: "Girl / Legs / 6",
+    title: "Юбка",
     preview: girlLegs_6,
   },
 ];
@@ -150,16 +152,17 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* <Background /> */}
       <aside className="App__aside">
+        <h1>Create your ideal character</h1>
         <List
           list={arrHeadsItems}
-          title="Heads"
+          title="Прическа"
           isShow
           onItemSelect={setHead}
         />
-        <List list={arBodiesItems} title="Bodies" onItemSelect={setBody} />
-        <List list={arLegsItems} title="Legs" onItemSelect={setLegs} />
+        <List list={arBodiesItems} title="Тело" onItemSelect={setBody} />
+
+        <ColorPicker title="Цвет кожи" isShow />
       </aside>
 
       <div className="App__mannequin">
@@ -167,6 +170,22 @@ const App = () => {
         {body && <Body bodyPreview={body.preview} />}
         {legs && <Legs legsPreview={legs.preview} />}
       </div>
+
+      <aside className="App__aside--rigth">
+        <List list={arLegsItems} title="Ноги" isShow onItemSelect={setLegs} />
+        <div className="intro">
+          Edit your person any way you like by using ready elements and styles
+          for your character. Use your creative to compose your ideal human.
+        </div>
+
+        {/* <Background /> */}
+        <div className="Background">
+          <div className="Background__title">
+            <span>Обстановка</span>
+          </div>
+          <div className="Background__wrapper"></div>
+        </div>
+      </aside>
     </div>
   );
 };
