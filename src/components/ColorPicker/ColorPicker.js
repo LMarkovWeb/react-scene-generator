@@ -1,15 +1,27 @@
 import React, { useState, useEffect } from "react";
+/**
+ * React Color
+ * @see https://casesandberg.github.io/react-color/
+ */
 import { TwitterPicker } from "react-color";
+/**
+ * Styles
+ */
 import "./style.scss";
 
-const ColorPicker = ({ title, isShow }) => {
-  const [isShowState, setShow] = useState(false);
-  useEffect(() => {
-    if (isShow) {
-      setShow(true);
-    }
-    //console.log("isShow :>> ", title, isShow);
-  }, [isShow]);
+/**
+  @todo Настройка TwitterPicker. Свои цвета https://casesandberg.github.io/react-color/#api-individual
+*/
+
+const ColorPicker = ({ title, isShow, onSkinColorSelect }) => {
+  const [isShowState, setShow] = useState(isShow);
+
+  const initColor = "#FFDFC4";
+
+  function handleChangeComplete(color) {
+    console.log("handleChangeComplete", color.hex);
+    onSkinColorSelect(color.hex);
+  }
 
   return (
     <div className="ColorPicker">
@@ -18,7 +30,10 @@ const ColorPicker = ({ title, isShow }) => {
       </div>
       {isShowState && (
         <div className="ColorPicker__wrapper">
-          <TwitterPicker />
+          <TwitterPicker
+            color={initColor}
+            onChangeComplete={handleChangeComplete}
+          />
         </div>
       )}
     </div>
