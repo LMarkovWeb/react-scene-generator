@@ -20,8 +20,10 @@ import "./index.scss";
 /**
  * svg
  */
-import girlHead_1 from "../src/components/Head/img/Girl-Head-1.svg";
-import girlHead_2 from "../src/components/Head/img/Girl-Head-2.svg";
+//import girlHead_1 from "../src/components/Head/img/Girl-Head-1.svg";
+//import girlHead_2 from "../src/components/Head/img/Girl-Head-2.svg";
+import { GirlHead_1, GirlHead_2 } from "../src/components/Head/img/Girl-Head";
+
 import girlHead_3 from "../src/components/Head/img/Girl-Head-3.svg";
 import girlHead_4 from "../src/components/Head/img/Girl-Head-4.svg";
 import girlHead_5 from "../src/components/Head/img/Girl-Head-5.svg";
@@ -43,17 +45,18 @@ import girlLegs_2 from "../src/components/Legs/img/Girl-Legs-2.svg";
 import girlLegs_4 from "../src/components/Legs/img/Girl-Legs-4.svg";
 import girlLegs_5 from "../src/components/Legs/img/Girl-Legs-5.svg";
 import girlLegs_6 from "../src/components/Legs/img/Girl-Legs-6.svg";
+
 import { ColorPicker } from "./components/ColorPicker/ColorPicker";
 
 // List for Head
 const arrHeadsItems = [
   {
     title: "Карэ",
-    preview: girlHead_1,
+    preview: GirlHead_1,
   },
   {
     title: "Карэ",
-    preview: girlHead_2,
+    preview: GirlHead_2,
   },
   {
     title: "Хвостик",
@@ -145,10 +148,15 @@ const arLegsItems = [
  * App
  */
 const App = () => {
-  const [head, setHead] = useState(arrHeadsItems[0]);
-  const [body, setBody] = useState(arBodiesItems[0]);
-  const [legs, setLegs] = useState(arLegsItems[0]);
-  //console.log("head :>> ", head);
+  const [head, setHead] = useState(false);
+  const [body, setBody] = useState(false);
+  //const [legs, setLegs] = useState(arLegsItems[0]);
+  const [legs, setLegs] = useState(false);
+  const [skinColor, setSkinColor] = useState("#FFDFC4");
+
+  console.log("состояние skinColor :>> ", skinColor);
+
+  // debugger;
 
   return (
     <div className="App">
@@ -161,12 +169,20 @@ const App = () => {
           onItemSelect={setHead}
         />
         <List list={arBodiesItems} title="Тело" onItemSelect={setBody} />
-
-        <ColorPicker title="Цвет кожи" isShow />
+        <ColorPicker
+          title="Цвет кожи"
+          isShow
+          onSkinColorSelect={setSkinColor}
+        />
       </aside>
 
       <div className="App__mannequin">
-        {head && <Head headPreview={head.preview} />}
+        {/*console.log("head = ", head)*/}
+        {/*console.log("head.preview = ", head.preview)*/}
+        {head && (
+          <GirlHead_1 headPreview={head.preview} fillColor={skinColor.color} />
+        )}
+
         {body && <Body bodyPreview={body.preview} />}
         {legs && <Legs legsPreview={legs.preview} />}
       </div>
