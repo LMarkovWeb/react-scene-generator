@@ -20,16 +20,14 @@ import "./index.scss";
 /**
  * svg
  */
-//import girlHead_1 from "../src/components/Head/img/Girl-Head-1.svg";
-//import girlHead_2 from "../src/components/Head/img/Girl-Head-2.svg";
-import { GirlHead_1, GirlHead_2 } from "../src/components/Head/img/Girl-Head";
-
-import girlHead_3 from "../src/components/Head/img/Girl-Head-3.svg";
-import girlHead_4 from "../src/components/Head/img/Girl-Head-4.svg";
-import girlHead_5 from "../src/components/Head/img/Girl-Head-5.svg";
-import girlHead_6 from "../src/components/Head/img/Girl-Head-6.svg";
-import girlHead_7 from "../src/components/Head/img/Girl-Head-7.svg";
-import girlHead_8 from "../src/components/Head/img/Girl-Head-8.svg";
+import {ReactComponent as GirlHead1} from "../src/components/Head/img/Girl-Head-1.svg";
+import {ReactComponent as GirlHead2}  from "../src/components/Head/img/Girl-Head-2.svg";
+import {ReactComponent as GirlHead3}  from "../src/components/Head/img/Girl-Head-3.svg";
+import {ReactComponent as GirlHead4}  from "../src/components/Head/img/Girl-Head-4.svg";
+import {ReactComponent as GirlHead5}  from "../src/components/Head/img/Girl-Head-5.svg";
+import {ReactComponent as GirlHead6}  from "../src/components/Head/img/Girl-Head-6.svg";
+import {ReactComponent as GirlHead7}  from "../src/components/Head/img/Girl-Head-7.svg";
+import {ReactComponent as GirlHead8}  from "../src/components/Head/img/Girl-Head-8.svg";
 
 import girlBody_1 from "../src/components/Body/img/Girl-Body-1.svg";
 import girlBody_2 from "../src/components/Body/img/Girl-Body-2.svg";
@@ -52,35 +50,35 @@ import { ColorPicker } from "./components/ColorPicker/ColorPicker";
 const arrHeadsItems = [
   {
     title: "Карэ",
-    preview: GirlHead_1,
+    preview: <GirlHead1/>,
   },
   {
-    title: "Карэ",
-    preview: GirlHead_2,
+    title: "Карэ 2",
+    preview: <GirlHead2/>,
   },
   {
     title: "Хвостик",
-    preview: girlHead_3,
+    preview: <GirlHead3/>,
   },
   {
     title: "Афро",
-    preview: girlHead_4,
+    preview: <GirlHead4/>,
   },
   {
     title: "Распущенные волосы",
-    preview: girlHead_5,
+    preview: <GirlHead5/>,
   },
   {
     title: "Удлиненное карэ",
-    preview: girlHead_6,
+    preview: <GirlHead6/>,
   },
   {
     title: "Голивудская волна",
-    preview: girlHead_7,
+    preview: <GirlHead7/>,
   },
   {
     title: "Хан",
-    preview: girlHead_8,
+    preview: <GirlHead8/>,
   },
 ];
 
@@ -157,6 +155,8 @@ const App = () => {
   console.log("состояние skinColor :>> ", skinColor);
 
   // debugger;
+  
+  console.log('head', head)
 
   return (
     <div className="App">
@@ -180,8 +180,9 @@ const App = () => {
         {/*console.log("head = ", head)*/}
         {/*console.log("head.preview = ", head.preview)*/}
         {head && (
-          <GirlHead_1 headPreview={head.preview} fillColor={skinColor.color} />
+          <Head fillColor={skinColor} svgCode={head.preview} />
         )}
+
 
         {body && <Body bodyPreview={body.preview} />}
         {legs && <Legs legsPreview={legs.preview} />}

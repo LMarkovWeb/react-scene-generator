@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import "./style.scss";
+
+const StyledPreview = styled.span`
+  svg {
+    max-width: 34px!important;
+    max-height: 34px!important;
+    margin-right: 8px;
+  }
+`
 
 function List({ list, title, isShow, onItemSelect }) {
   const [isShowState, setShow] = useState(false);
@@ -25,7 +34,10 @@ function List({ list, title, isShow, onItemSelect }) {
               key={item.title}
               onClick={() => onItemSelect(item)}
             >
-              <img className="List__preview" src={item.preview} /> {item.title}
+              <StyledPreview>
+                {item.preview}
+              </StyledPreview>
+              {item.title}
             </li>
           ))}
         </ul>
