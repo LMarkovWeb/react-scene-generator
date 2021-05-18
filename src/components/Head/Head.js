@@ -1,5 +1,5 @@
 import React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 import "./style.scss";
 
 /**
@@ -9,20 +9,19 @@ import "./style.scss";
 export const HeadWrapper = styled.div`
   svg {
     width: 235px !important;
+    height: 200px !important;
   }
 
   #Face {
-    fill: ${props => props.fillColor} !important;
+    fill: ${(props) => props.fillColor} !important;
   }
-`
-const Head = ({fillColor, svgCode}) => {
-    return (
-        <div className="Head">
-            <HeadWrapper fillColor={fillColor}>
-                {svgCode}
-            </HeadWrapper>
-        </div>
-    );
+`;
+const Head = ({ fillColor, svgCode }) => {
+  return (
+    <div className="Head">
+      <HeadWrapper fillColor={fillColor}>{svgCode}</HeadWrapper>
+    </div>
+  );
 };
 
-export {Head};
+export { Head };

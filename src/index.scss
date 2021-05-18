@@ -10,7 +10,7 @@
   background-color: #f2f6fb;
   overflow: hidden;
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px 40px 40px;
   width: 70%;
   max-width: 1200px;
   border-radius: 20px;
@@ -21,6 +21,7 @@
   }
 
   &__aside--rigth {
+    margin-top: 40px;
   }
 
   .intro {
