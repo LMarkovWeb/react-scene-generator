@@ -1,10 +1,21 @@
 import React from "react";
+import styled from "styled-components";
 import "./style.scss";
 
-const Body = ({ bodyPreview }) => {
+export const BodyWrapper = styled.div`
+  svg {
+    width: 235px !important;
+    height: 350px !important;
+  }
+
+  #Skin {
+    fill: ${(props) => props.fillColor} !important;
+  }
+`;
+const Body = ({ fillColor, svgCode }) => {
   return (
     <div className="Body">
-      <img className="Body__img" src={bodyPreview} />
+      <BodyWrapper fillColor={fillColor}>{svgCode}</BodyWrapper>
     </div>
   );
 };

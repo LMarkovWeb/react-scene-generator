@@ -10,132 +10,135 @@ import { List } from "./components/List/List";
 import { Head } from "./components/Head/Head";
 import { Background } from "./components/Background/Background";
 import { Legs } from "./components/Legs/Legs";
+import { Body } from "./components/Body/Body";
 
 /**
  * styles
  */
+import "normalize.css";
 import "./index.scss";
 /**
  * svg
  */
-import girlHead_1 from "../src/components/Head/img/Girl-Head-1.svg";
-import girlHead_2 from "../src/components/Head/img/Girl-Head-2.svg";
-import girlHead_3 from "../src/components/Head/img/Girl-Head-3.svg";
-import girlHead_4 from "../src/components/Head/img/Girl-Head-4.svg";
-import girlHead_5 from "../src/components/Head/img/Girl-Head-5.svg";
-import girlHead_6 from "../src/components/Head/img/Girl-Head-6.svg";
-import girlHead_7 from "../src/components/Head/img/Girl-Head-7.svg";
-import girlHead_8 from "../src/components/Head/img/Girl-Head-8.svg";
+import { ReactComponent as GirlHead1 } from "../src/components/Head/img/Girl-Head-1.svg";
+import { ReactComponent as GirlHead2 } from "../src/components/Head/img/Girl-Head-2.svg";
+import { ReactComponent as GirlHead3 } from "../src/components/Head/img/Girl-Head-3.svg";
+import { ReactComponent as GirlHead4 } from "../src/components/Head/img/Girl-Head-4.svg";
+import { ReactComponent as GirlHead5 } from "../src/components/Head/img/Girl-Head-5.svg";
+import { ReactComponent as GirlHead6 } from "../src/components/Head/img/Girl-Head-6.svg";
+import { ReactComponent as GirlHead7 } from "../src/components/Head/img/Girl-Head-7.svg";
+import { ReactComponent as GirlHead8 } from "../src/components/Head/img/Girl-Head-8.svg";
 
-import girlBody_1 from "../src/components/Body/img/Girl-Body-1.svg";
-import girlBody_2 from "../src/components/Body/img/Girl-Body-2.svg";
-import girlBody_3 from "../src/components/Body/img/Girl-Body-3.svg";
-import girlBody_4 from "../src/components/Body/img/Girl-Body-4.svg";
-import girlBody_5 from "../src/components/Body/img/Girl-Body-5.svg";
-import girlBody_6 from "../src/components/Body/img/Girl-Body-6.svg";
-import girlBody_7 from "../src/components/Body/img/Girl-Body-7.svg";
-import girlBody_8 from "../src/components/Body/img/Girl-Body-8.svg";
+import { ReactComponent as GirlBody_1 } from "../src/components/Body/img/Girl-Body-1.svg";
+import { ReactComponent as GirlBody_2 } from "../src/components/Body/img/Girl-Body-2.svg";
+import { ReactComponent as GirlBody_3 } from "../src/components/Body/img/Girl-Body-3.svg";
+import { ReactComponent as GirlBody_4 } from "../src/components/Body/img/Girl-Body-4.svg";
+import { ReactComponent as GirlBody_5 } from "../src/components/Body/img/Girl-Body-5.svg";
+import { ReactComponent as GirlBody_6 } from "../src/components/Body/img/Girl-Body-6.svg";
+import { ReactComponent as GirlBody_7 } from "../src/components/Body/img/Girl-Body-7.svg";
+import { ReactComponent as GirlBody_8 } from "../src/components/Body/img/Girl-Body-8.svg";
 
-import girlLegs_1 from "../src/components/Legs/img/Girl-Legs-1.svg";
-import girlLegs_2 from "../src/components/Legs/img/Girl-Legs-2.svg";
-import girlLegs_4 from "../src/components/Legs/img/Girl-Legs-4.svg";
-import girlLegs_5 from "../src/components/Legs/img/Girl-Legs-5.svg";
-import girlLegs_6 from "../src/components/Legs/img/Girl-Legs-6.svg";
-import { Body } from "./components/Body/Body";
+import { ReactComponent as GirlLegs_1 } from "../src/components/Legs/img/Girl-Legs-1.svg";
+import { ReactComponent as GirlLegs_2 } from "../src/components/Legs/img/Girl-Legs-2.svg";
+import { ReactComponent as GirlLegs_4 } from "../src/components/Legs/img/Girl-Legs-4.svg";
+import { ReactComponent as GirlLegs_5 } from "../src/components/Legs/img/Girl-Legs-5.svg";
+import { ReactComponent as GirlLegs_6 } from "../src/components/Legs/img/Girl-Legs-6.svg";
+
+import { ColorPicker } from "./components/ColorPicker/ColorPicker";
 
 // List for Head
 const arrHeadsItems = [
   {
-    title: "Girl / Head / 1",
-    preview: girlHead_1,
+    title: "Карэ",
+    preview: <GirlHead1 />,
   },
   {
-    title: "Girl / Head / 2",
-    preview: girlHead_2,
+    title: "Карэ 2",
+    preview: <GirlHead2 />,
   },
   {
-    title: "Girl / Head / 3",
-    preview: girlHead_3,
+    title: "Хвостик",
+    preview: <GirlHead3 />,
   },
   {
-    title: "Girl / Head / 4",
-    preview: girlHead_4,
+    title: "Афро",
+    preview: <GirlHead4 />,
   },
   {
-    title: "Girl / Head / 5",
-    preview: girlHead_5,
+    title: "Распущенные волосы",
+    preview: <GirlHead5 />,
   },
   {
-    title: "Girl / Head / 6",
-    preview: girlHead_6,
+    title: "Удлиненное карэ",
+    preview: <GirlHead6 />,
   },
   {
-    title: "Girl / Head / 7",
-    preview: girlHead_7,
+    title: "Голивудская волна",
+    preview: <GirlHead7 />,
   },
   {
-    title: "Girl / Head / 8",
-    preview: girlHead_8,
+    title: "Хан",
+    preview: <GirlHead8 />,
   },
 ];
 
 // List for Body
 const arBodiesItems = [
   {
-    title: "Girl / Body / 1",
-    preview: girlBody_1,
+    title: "Пальто",
+    preview: <GirlBody_1 />,
   },
   {
-    title: "Girl / Body / 2",
-    preview: girlBody_2,
+    title: "Кофта",
+    preview: <GirlBody_2 />,
   },
   {
-    title: "Girl / Body / 3",
-    preview: girlBody_3,
+    title: "Кофта",
+    preview: <GirlBody_3 />,
   },
   {
-    title: "Girl / Body / 4",
-    preview: girlBody_4,
+    title: "Футболка",
+    preview: <GirlBody_4 />,
   },
   {
-    title: "Girl / Body / 5",
-    preview: girlBody_5,
+    title: "Топик",
+    preview: <GirlBody_5 />,
   },
   {
-    title: "Girl / Body / 6",
-    preview: girlBody_6,
+    title: "Кофта 3/4",
+    preview: <GirlBody_6 />,
   },
   {
-    title: "Girl / Body / 7",
-    preview: girlBody_7,
+    title: "Кофта",
+    preview: <GirlBody_7 />,
   },
   {
-    title: "Girl / Body / 8",
-    preview: girlBody_8,
+    title: "Футболка",
+    preview: <GirlBody_8 />,
   },
 ];
 
 // List for Legs
 const arLegsItems = [
   {
-    title: "Girl / Legs / 1",
-    preview: girlLegs_1,
+    title: "Широкие штаны",
+    preview: <GirlLegs_1 />,
   },
   {
-    title: "Girl / Legs / 2",
-    preview: girlLegs_2,
+    title: "Узкие штаны",
+    preview: <GirlLegs_2 />,
   },
   {
-    title: "Girl / Legs / 4",
-    preview: girlLegs_4,
+    title: "Штаны",
+    preview: <GirlLegs_4 />,
   },
   {
-    title: "Girl / Legs / 5",
-    preview: girlLegs_5,
+    title: "Юбка",
+    preview: <GirlLegs_5 />,
   },
   {
-    title: "Girl / Legs / 6",
-    preview: girlLegs_6,
+    title: "Юбка",
+    preview: <GirlLegs_6 />,
   },
 ];
 
@@ -143,30 +146,47 @@ const arLegsItems = [
  * App
  */
 const App = () => {
-  const [head, setHead] = useState(arrHeadsItems[0]);
-  const [body, setBody] = useState(arBodiesItems[0]);
-  const [legs, setLegs] = useState(arLegsItems[0]);
-  //console.log("head :>> ", head);
+  const [head, setHead] = useState(false);
+  const [body, setBody] = useState(false);
+  const [legs, setLegs] = useState(false);
+  const [skinColor, setSkinColor] = useState("#FFDFC4");
+
+  // debugger;
 
   return (
     <div className="App">
-      {/* <Background /> */}
       <aside className="App__aside">
+        <h1>Создай свою идеальную девушку</h1>
         <List
           list={arrHeadsItems}
-          title="Heads"
+          title="Голова и прическа"
           isShow
           onItemSelect={setHead}
         />
-        <List list={arBodiesItems} title="Bodies" onItemSelect={setBody} />
-        <List list={arLegsItems} title="Legs" onItemSelect={setLegs} />
+
+        <ColorPicker
+          title="Цвет кожи"
+          isShow
+          onSkinColorSelect={setSkinColor}
+        />
       </aside>
 
       <div className="App__mannequin">
-        {head && <Head headPreview={head.preview} />}
-        {body && <Body bodyPreview={body.preview} />}
-        {legs && <Legs legsPreview={legs.preview} />}
+        {head && <Head fillColor={skinColor} svgCode={head.preview} />}
+
+        {body && <Body fillColor={skinColor} svgCode={body.preview} />}
+        {legs && <Legs fillColor={skinColor} svgCode={legs.preview} />}
       </div>
+
+      <aside className="App__aside--rigth">
+        <List
+          list={arBodiesItems}
+          title="Тело и верхняя одежда"
+          isShow
+          onItemSelect={setBody}
+        />
+        <List list={arLegsItems} title="Ноги" isShow onItemSelect={setLegs} />
+      </aside>
     </div>
   );
 };
