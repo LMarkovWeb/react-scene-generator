@@ -1,7 +1,7 @@
 /**
  * React
  */
-import React, { useState } from "react";
+import React from "react";
 /**
  * style
  */
@@ -11,22 +11,21 @@ import "./style.scss";
  */
 import { Select, MenuItem } from "@material-ui/core";
 
-const SelectGender = () => {
-  const [gender, setGender] = useState(10);
+const SelectGender = ({ gender, onItemSelect }) => {
   const handleChange = (event) => {
-    setGender(event.target.value);
+    onItemSelect(event.target.value);
   };
   return (
     <>
       я
       <Select id="select_1" value={gender} onChange={handleChange}>
-        <MenuItem value={10}>парень</MenuItem>
-        <MenuItem value={20}>девушка</MenuItem>
+        <MenuItem value={"man"}>парень</MenuItem>
+        <MenuItem value={"woman"}>девушка</MenuItem>
       </Select>
       ищу
       <Select id="select_2" value={gender} onChange={handleChange}>
-        <MenuItem value={10}>девушку</MenuItem>
-        <MenuItem value={20}>парня</MenuItem>
+        <MenuItem value={"man"}>девушку</MenuItem>
+        <MenuItem value={"woman"}>парня</MenuItem>
       </Select>
     </>
   );
