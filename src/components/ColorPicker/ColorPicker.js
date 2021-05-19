@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 /**
  * React Color
  * @see https://casesandberg.github.io/react-color/
@@ -19,7 +19,6 @@ const ColorPicker = ({ title, isShow, onSkinColorSelect }) => {
   const initColor = "#FFDFC4";
 
   function handleChangeComplete(color) {
-    console.log("handleChangeComplete", color.hex);
     onSkinColorSelect(color.hex);
   }
 
