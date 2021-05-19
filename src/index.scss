@@ -6,10 +6,15 @@
   text-align: center;
   padding: 15px;
 }
+
 .App {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 35px 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "App_selectGender App_selectGender App_selectGender"
+    "App__aside App__mannequin App__aside--rigth";
   height: calc(100vh - 130px);
   background-color: #f2f6fb;
   overflow: hidden;
@@ -19,12 +24,19 @@
   max-width: 1200px;
   border-radius: 20px;
 
+  &__selectGender {
+    grid-area: App_selectGender;
+  }
   &__mannequin {
     position: relative;
+    grid-area: App__mannequin;
   }
-
+  &__aside {
+    grid-area: App__aside;
+  }
   &__aside--rigth {
     margin-top: 40px;
+    grid-area: App__aside--rigth;
   }
 
   .intro {

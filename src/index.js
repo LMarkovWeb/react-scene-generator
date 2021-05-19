@@ -3,6 +3,7 @@
  */
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+
 /**
  * Components
  */
@@ -11,11 +12,13 @@ import { Head } from "./components/Head/Head";
 import { Background } from "./components/Background/Background";
 import { Legs } from "./components/Legs/Legs";
 import { Body } from "./components/Body/Body";
+import { SelectGender } from "./components/SelectGender/SelectGender";
 
 /**
  * styles
  */
 import "normalize.css";
+import "fontsource-roboto";
 import "./index.scss";
 /**
  * svg
@@ -155,6 +158,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="App_selectGender">
+        <SelectGender />
+      </div>
       <aside className="App__aside">
         <h1>Создай свою идеальную девушку</h1>
         <List
@@ -163,21 +169,18 @@ const App = () => {
           isShow
           onItemSelect={setHead}
         />
-
         <ColorPicker
           title="Цвет кожи"
           isShow
           onSkinColorSelect={setSkinColor}
         />
       </aside>
-
       <div className="App__mannequin">
         {head && <Head fillColor={skinColor} svgCode={head.preview} />}
 
         {body && <Body fillColor={skinColor} svgCode={body.preview} />}
         {legs && <Legs fillColor={skinColor} svgCode={legs.preview} />}
       </div>
-
       <aside className="App__aside--rigth">
         <List
           list={arBodiesItems}
