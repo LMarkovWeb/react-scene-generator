@@ -2,9 +2,13 @@
   background-color: #f2f2f2;
   padding: 25px 0;
 }
+#cr {
+  text-align: center;
+  padding: 15px;
+}
 .App {
   display: grid;
-  grid-template-columns: 300px 1fr 250px;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr;
   height: calc(100vh - 130px);
   background-color: #f2f6fb;
@@ -17,7 +21,6 @@
 
   &__mannequin {
     position: relative;
-    margin: 0 0 0 50px;
   }
 
   &__aside--rigth {
