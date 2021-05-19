@@ -8,7 +8,9 @@ export const BodyWrapper = styled.div`
     height: 350px !important;
   }
 
-  #Skin {
+  #Skin,
+  #Hands_2,
+  #Mask {
     fill: ${(props) => props.fillColor} !important;
   }
 `;
