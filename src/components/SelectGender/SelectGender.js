@@ -14,6 +14,7 @@ import { Select, MenuItem } from "@material-ui/core";
 const SelectGender = ({ gender, onItemSelect }) => {
   const handleChange = (event) => {
     onItemSelect(event.target.value);
+    localStorage.setItem("genderDefault", event.target.value);
   };
   return (
     <>

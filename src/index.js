@@ -33,11 +33,23 @@ import "./index.scss";
  * App
  */
 const App = () => {
+  // set default gender
+  let genderDefault = "man";
+  let genderFromLocSt = localStorage.getItem("genderDefault");
+  if (genderFromLocSt) {
+    genderDefault = genderFromLocSt;
+  }
+
+  // const label = [1, 2, 3, 4, 5];
+  // let _local = JSON.parse(localStorage.getItem("label") || "[]");
+  // _local.push(label);
+  // localStorage.setItem("label", JSON.stringify(_local));
+
   const [head, setHead] = useState(false);
   const [body, setBody] = useState(false);
   const [legs, setLegs] = useState(false);
   const [skinColor, setSkinColor] = useState("#FFDFC4");
-  const [gender, setGender] = useState("man");
+  const [gender, setGender] = useState(genderDefault);
 
   useEffect(() => {
     setHead(false);
