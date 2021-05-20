@@ -208,19 +208,15 @@ const arLegsItemsGirl = [
 // List for Legs Man
 const arLegsItemsMan = [
   {
-    title: "Штаны 1",
+    title: "Штаны",
     preview: <ManLegs2 />,
   },
   {
-    title: "Штаны 2",
+    title: "Брюки",
     preview: <ManLegs3 />,
   },
   {
-    title: "Штаны 3",
-    preview: <ManLegs4 />,
-  },
-  {
-    title: "Штаны 4",
+    title: "Спортивки",
     preview: <ManLegs6 />,
   },
 ];
