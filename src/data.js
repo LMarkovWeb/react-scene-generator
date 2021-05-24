@@ -92,11 +92,11 @@ const arHeadsItemsMan = [
     preview: <ManHead1 />,
   },
   {
-    title: "...",
+    title: "Милитари",
     preview: <ManHead2 />,
   },
   {
-    title: "...",
+    title: "Афро прическа",
     preview: <ManHead3 />,
   },
   {
@@ -104,11 +104,11 @@ const arHeadsItemsMan = [
     preview: <ManHead4 />,
   },
   {
-    title: "...",
+    title: "Фреди",
     preview: <ManHead5 />,
   },
   {
-    title: "...",
+    title: "Элвис",
     preview: <ManHead6 />,
   },
   {
@@ -116,7 +116,7 @@ const arHeadsItemsMan = [
     preview: <ManHead7 />,
   },
   {
-    title: "...",
+    title: "Флинстоун",
     preview: <ManHead8 />,
   },
 ];
@@ -158,12 +158,8 @@ const arBodiesItemsGirl = [
 // List for Body Man
 const arBodiesItemsMan = [
   {
-    title: "...",
+    title: "Пуловер",
     preview: <ManBody1 />,
-  },
-  {
-    title: "...",
-    preview: <ManBody2 />,
   },
   {
     title: "Футболка синяя",
@@ -208,11 +204,11 @@ const arLegsItemsGirl = [
 // List for Legs Man
 const arLegsItemsMan = [
   {
-    title: "Штаны",
+    title: "Широкие брюки",
     preview: <ManLegs2 />,
   },
   {
-    title: "Брюки",
+    title: "Узкие брюки",
     preview: <ManLegs3 />,
   },
   {
