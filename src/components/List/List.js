@@ -4,11 +4,11 @@ import "./style.scss";
 
 const StyledPreview = styled.span`
   svg {
-    max-width: 34px!important;
-    max-height: 34px!important;
+    max-width: 34px !important;
+    max-height: 34px !important;
     margin-right: 8px;
   }
-`
+`;
 
 function List({ list, title, isShow, onItemSelect }) {
   const [isShowState, setShow] = useState(false);
@@ -31,12 +31,10 @@ function List({ list, title, isShow, onItemSelect }) {
           {list.map((item) => (
             <li
               className="List__item"
-              key={item.title}
+              key={Math.random().toString()}
               onClick={() => onItemSelect(item)}
             >
-              <StyledPreview>
-                {item.preview}
-              </StyledPreview>
+              <StyledPreview>{item.preview}</StyledPreview>
               {item.title}
             </li>
           ))}

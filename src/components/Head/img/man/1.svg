@@ -1,0 +1,31 @@
+<svg width="146" height="201" viewBox="0 0 146 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 29" filter="url(#filter0_d)">
+<g id="Face color">
+<path id="Face" d="M85.9505 191.992L85.1022 162.675C85.1022 162.675 120.724 165.512 128.343 161.553C128.343 161.553 137.657 113.565 126.55 86.9897L126.325 85.954L51.1522 77.1603L46.4292 119.704C43.8971 112.234 23.5076 104.361 18.0451 115.058C6.2067 138.235 48.5353 153.842 48.5353 153.842L44.2371 192.345" fill="#E576C6"/>
+</g>
+<path id="Fill 6" opacity="0.397786" fill-rule="evenodd" clip-rule="evenodd" d="M85.1021 162.675L61.0815 157.524L84.986 173.674L85.1021 162.675Z" fill="black"/>
+<path id="Fill 8" fill-rule="evenodd" clip-rule="evenodd" d="M104.916 114.767L113.216 135.061L103.268 135.188L104.916 114.767Z" fill="#405FD3"/>
+<path id="Fill 10" fill-rule="evenodd" clip-rule="evenodd" d="M95.4519 120.534C95.9465 123.267 94.1313 125.883 91.3992 126.377C88.6662 126.871 86.0501 125.057 85.5555 122.324C85.0608 119.591 86.8769 116.976 89.609 116.481C92.3421 115.986 94.9572 117.801 95.4519 120.534" fill="#0D0B6D"/>
+<path id="Fill 12" fill-rule="evenodd" clip-rule="evenodd" d="M121.558 120.534C122.053 123.267 120.238 125.883 117.506 126.377C114.773 126.871 112.157 125.057 111.662 122.324C111.167 119.591 112.983 116.976 115.715 116.481C118.449 115.986 121.064 117.801 121.558 120.534" fill="#0D0B6D"/>
+<g id="Group 17">
+<path id="Fill 14" fill-rule="evenodd" clip-rule="evenodd" d="M94.5947 140.935C94.5947 140.935 98.0715 146.573 104.958 146.095Z" fill="white"/>
+<path id="Stroke 16" d="M94.5947 140.935C94.5947 140.935 98.0715 146.573 104.958 146.095" stroke="#252535" stroke-width="4"/>
+</g>
+<path id="Path" fill-rule="evenodd" clip-rule="evenodd" d="M49.5584 123.272C46.1112 118.829 42.2714 115.888 38.8008 113.945L39.6187 96.962L74.9303 90.8039C72.0394 110.272 59.2417 119.23 49.5584 123.272V123.272Z" fill="#19141E"/>
+<g id="Hat">
+<path id="Hat fill" d="M12.9567 91.6829C12.9567 91.6829 0.925451 48.5141 35.5505 24.6909C78.4076 -4.7966 128.014 72.6748 128.014 72.6748" fill="#CE3D29"/>
+<path id="Hat color" fill-rule="evenodd" clip-rule="evenodd" d="M43.8623 14.5148C45.7846 24.2639 39.44 33.7255 29.6909 35.6479C19.9418 37.5711 10.4793 31.2264 8.55696 21.4773C6.63463 11.7273 12.9793 2.26572 22.7284 0.343403C32.4775 -1.57892 41.94 4.76573 43.8623 14.5148ZM4.13196 96.6463C3.33106 92.1508 6.25785 87.8356 10.7302 86.9169L124.587 63.5231C128.877 62.6419 133.128 65.1955 134.364 69.3972L140.808 91.3008C142.235 96.1499 139.098 101.155 134.112 101.987L17.0284 121.527C12.4748 122.287 8.15785 119.24 7.34892 114.695L4.13196 96.6463ZM30.7887 45.3872L10.953 72.6264L60.9573 60.7533L61.0816 60.8166L61.1552 60.7063L109.59 49.2059L78.5012 34.7184L61.1552 60.7063L60.9573 60.7533L30.7887 45.3872Z" fill="#2437A8"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" x="6.10352e-05" y="9.15527e-05" width="145.154" height="200.345" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+</defs>
+</svg>
