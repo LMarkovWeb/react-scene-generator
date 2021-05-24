@@ -21,6 +21,7 @@ import {
   arLegsItemsGirl,
   arLegsItemsMan,
 } from "./data";
+import { Button } from "@material-ui/core";
 
 /**
  * styles
@@ -107,6 +108,16 @@ const App = () => {
           onItemSelect={setLegs}
         />
       </aside>
+
+      <nav className="nave">
+        <Button>Ничего не делать</Button>
+        <Button href="#" color="secondary">
+          Пойти на свидание
+        </Button>
+        <Button href="#" disabled>
+          Disabled
+        </Button>
+      </nav>
     </div>
   );
 };
