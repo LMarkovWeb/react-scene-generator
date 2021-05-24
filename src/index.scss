@@ -30,13 +30,17 @@
   &__mannequin {
     position: relative;
     grid-area: App__mannequin;
+    z-index: 0;
+    pointer-events: none;
   }
   &__aside {
     grid-area: App__aside;
   }
   &__aside--rigth {
-    margin-top: 40px;
     grid-area: App__aside--rigth;
+    position: relative;
+    z-index: 3;
+    margin-top: 40px;
   }
 
   .intro {
