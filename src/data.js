@@ -31,7 +31,6 @@ import { ReactComponent as GirlBody7 } from "../src/components/Body/img/Girl-Bod
 import { ReactComponent as GirlBody8 } from "../src/components/Body/img/Girl-Body-8.svg";
 //man
 import { ReactComponent as ManBody1 } from "../src/components/Body/img/man/1.svg";
-import { ReactComponent as ManBody2 } from "../src/components/Body/img/man/2.svg";
 import { ReactComponent as ManBody5 } from "../src/components/Body/img/man/5.svg";
 import { ReactComponent as ManBody6 } from "../src/components/Body/img/man/6.svg";
 import { ReactComponent as ManBody7 } from "../src/components/Body/img/man/7.svg";
@@ -47,7 +46,6 @@ import { ReactComponent as GirlLegs6 } from "../src/components/Legs/img/Girl-Leg
 //man
 import { ReactComponent as ManLegs2 } from "../src/components/Legs/img/man/2.svg";
 import { ReactComponent as ManLegs3 } from "../src/components/Legs/img/man/3.svg";
-import { ReactComponent as ManLegs4 } from "../src/components/Legs/img/man/4.svg";
 import { ReactComponent as ManLegs6 } from "../src/components/Legs/img/man/6.svg";
 
 // List for Head Girl

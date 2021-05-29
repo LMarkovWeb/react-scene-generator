@@ -3,7 +3,7 @@
  */
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 /**
  * Components
@@ -22,7 +22,7 @@ import {
   arLegsItemsGirl,
   arLegsItemsMan,
 } from "./data";
-import { Button } from "@material-ui/core";
+import Nav from "./components/Nav";
 import Dating from "./components/Dating/Dating";
 
 /**
@@ -79,10 +79,9 @@ const App = () => {
             <Dating />
           </Route>
           <Route path="/">
-            <div className="App_selectGender">
-              <SelectGender gender={gender} onItemSelect={setGender} />
-            </div>
-            <aside className="App__aside">
+            <SelectGender gender={gender} onItemSelect={setGender} />
+
+            <aside className="App__aside--left">
               <h1>
                 {gender === "man"
                   ? "Создай свою идеальную девушку"
@@ -119,16 +118,7 @@ const App = () => {
                 isShow
                 onItemSelect={setLegs}
               />
-              <nav className="nav">
-                <Link to="/dating">
-                  <Button color="secondary">Пойти на свидание</Button>
-                </Link>
-
-                <Button id="doNothing">Ничего не делать</Button>
-                {/* <Button href="#" disabled>
-          Disabled
-        </Button> */}
-              </nav>
+              <Nav />
             </aside>
           </Route>
         </Switch>
