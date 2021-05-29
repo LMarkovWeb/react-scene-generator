@@ -69,7 +69,7 @@ const App = () => {
       <div className="App_selectGender">
         <SelectGender gender={gender} onItemSelect={setGender} />
       </div>
-      <aside className="App__aside">
+      <aside className="App__aside--left">
         <h1>
           {gender === "man"
             ? "Создай свою идеальную девушку"

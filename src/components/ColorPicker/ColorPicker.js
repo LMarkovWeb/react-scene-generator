@@ -30,6 +30,7 @@ const ColorPicker = ({ title, isShow, onSkinColorSelect }) => {
       {isShowState && (
         <div className="ColorPicker__wrapper">
           <TwitterPicker
+            width={"276px"}
             color={initColor}
             onChangeComplete={handleChangeComplete}
             colors={[
