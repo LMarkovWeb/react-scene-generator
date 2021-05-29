@@ -14,7 +14,7 @@
   gap: 0px 0px;
   grid-template-areas:
     "App_selectGender App_selectGender App_selectGender"
-    "App__aside App__mannequin App__aside--rigth";
+    "App__aside--left App__mannequin App__aside--rigth";
   height: calc(100vh - 130px);
   background-color: #f2f6fb;
   overflow: hidden;
@@ -33,14 +33,31 @@
     z-index: 0;
     pointer-events: none;
   }
-  &__aside {
-    grid-area: App__aside;
+  &__aside--left {
+    grid-area: App__aside--left;
+
+    @media (max-width: 1994px) {
+      h1 {
+        font-size: 1.7em;
+        width: 250px;
+      }
+    }
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 1.5em;
+        width: 225px;
+      }
+    }
   }
   &__aside--rigth {
     grid-area: App__aside--rigth;
     position: relative;
     z-index: 3;
     margin-top: 40px;
+
+    @media (max-width: 767px) {
+      margin-top: 10px;
+    }
   }
 
   .intro {
@@ -49,6 +66,18 @@
     font-size: 18px;
     text-align: center;
     line-height: 1.4;
+  }
+  @media (max-width: 1194px) {
+    grid-template-columns: max-content 1fr max-content;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: 767px) {
+    grid-template-rows: 35px max-content;
+    grid-template-areas:
+      "App_selectGender App_selectGender"
+      "App__aside--left App__mannequin"
+      "App__aside--rigth App__mannequin";
   }
 }
 
@@ -73,13 +102,4 @@
   &__wrapper {
     padding: 15px 0 0;
   }
-}
-
-@media (max-width: 1194px) {
-}
-@media (max-width: 1024px) {
-}
-@media (max-width: 767px) {
-}
-@media (max-width: 480px) {
 }
