@@ -1,7 +1,9 @@
-// @todo: сделать функции для записи и чтения из localstorage
+const setLocSt = (label, objJSON) => {
+  return localStorage.setItem(label, objJSON);
+};
 
-const setLocSt = () => {};
-
-const getLocSt = () => {};
+const getLocSt = (label) => {
+  return localStorage.getItem(label);
+};
 
 export { setLocSt, getLocSt };

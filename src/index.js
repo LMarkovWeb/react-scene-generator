@@ -26,6 +26,10 @@ import Nav from "./components/Nav";
 import Dating from "./components/Dating/Dating";
 
 /**
+ * Services
+ */
+import { getLocSt } from "./services/localstorage";
+/**
  * styles
  */
 import "normalize.css";
@@ -37,16 +41,7 @@ import "./index.scss";
  */
 const App = () => {
   // set default gender
-  let genderDefault = "man";
-  let genderFromLocSt = localStorage.getItem("genderDefault");
-  if (genderFromLocSt) {
-    genderDefault = genderFromLocSt;
-  }
-
-  // const label = [1, 2, 3, 4, 5];
-  // let _local = JSON.parse(localStorage.getItem("label") || "[]");
-  // _local.push(label);
-  // localStorage.setItem("label", JSON.stringify(_local));
+  let genderDefault = getLocSt("genderDefault") || "man";
 
   const [head, setHead] = useState(false);
   const [body, setBody] = useState(false);
