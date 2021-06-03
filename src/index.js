@@ -23,7 +23,7 @@ import {
   arLegsItemsMan,
 } from "./data";
 import Nav from "./components/Nav";
-import Dating from "./components/Dating/Dating";
+import { Dating } from "./components/Dating/Dating";
 
 /**
  * styles
