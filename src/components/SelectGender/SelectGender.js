@@ -3,6 +3,10 @@
  */
 import React from "react";
 /**
+ * Services
+ */
+import { setLocSt } from "../../services/localstorage";
+/**
  * style
  */
 import "./style.scss";
@@ -14,7 +18,7 @@ import { Select, MenuItem } from "@material-ui/core";
 const SelectGender = ({ gender, onItemSelect }) => {
   const handleChange = (event) => {
     onItemSelect(event.target.value);
-    localStorage.setItem("genderDefault", event.target.value);
+    setLocSt("genderDefault", event.target.value);
   };
   return (
     <div className="App_selectGender">
