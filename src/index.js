@@ -3,6 +3,7 @@
  */
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 /**
  * Components
@@ -21,6 +22,8 @@ import {
   arLegsItemsGirl,
   arLegsItemsMan,
 } from "./data";
+import Nav from "./components/Nav";
+import Dating from "./components/Dating/Dating";
 
 /**
  * styles
@@ -64,50 +67,63 @@ const App = () => {
     gender === "woman" ? arBodiesItemsMan : arBodiesItemsGirl;
   let currentListLegs = gender === "woman" ? arLegsItemsMan : arLegsItemsGirl;
 
+  // ??? @see https://coderoad.ru/40256673/getElementById-%D0%B2-React
+  // const btn = document.getElementById("doNothing");
+  // console.log(btn);
+
   return (
-    <div className="App">
-      <div className="App_selectGender">
-        <SelectGender gender={gender} onItemSelect={setGender} />
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/dating">
+            <Dating />
+          </Route>
+          <Route path="/">
+            <SelectGender gender={gender} onItemSelect={setGender} />
+
+            <aside className="App__aside--left">
+              <h1>
+                {gender === "man"
+                  ? "Создай свою идеальную девушку"
+                  : "Создай своего идеального парня"}
+              </h1>
+              <List
+                list={currentListHead}
+                title="Голова и прическа"
+                isShow
+                onItemSelect={setHead}
+                genderType={gender}
+              />
+              <ColorPicker
+                title="Цвет кожи"
+                isShow
+                onSkinColorSelect={setSkinColor}
+              />
+            </aside>
+            <div className="App__mannequin">
+              {head && <Head fillColor={skinColor} svgCode={head.preview} />}
+              {body && <Body fillColor={skinColor} svgCode={body.preview} />}
+              {legs && <Legs fillColor={skinColor} svgCode={legs.preview} />}
+            </div>
+            <aside className="App__aside--rigth">
+              <List
+                list={currentListBody}
+                title="Тело и верхняя одежда"
+                isShow
+                onItemSelect={setBody}
+              />
+              <List
+                list={currentListLegs}
+                title="Ноги"
+                isShow
+                onItemSelect={setLegs}
+              />
+              <Nav />
+            </aside>
+          </Route>
+        </Switch>
       </div>
-      <aside className="App__aside">
-        <h1>
-          {gender === "man"
-            ? "Создай свою идеальную девушку"
-            : "Создай своего идеального парня"}
-        </h1>
-        <List
-          list={currentListHead}
-          title="Голова и прическа"
-          isShow
-          onItemSelect={setHead}
-          genderType={gender}
-        />
-        <ColorPicker
-          title="Цвет кожи"
-          isShow
-          onSkinColorSelect={setSkinColor}
-        />
-      </aside>
-      <div className="App__mannequin">
-        {head && <Head fillColor={skinColor} svgCode={head.preview} />}
-        {body && <Body fillColor={skinColor} svgCode={body.preview} />}
-        {legs && <Legs fillColor={skinColor} svgCode={legs.preview} />}
-      </div>
-      <aside className="App__aside--rigth">
-        <List
-          list={currentListBody}
-          title="Тело и верхняя одежда"
-          isShow
-          onItemSelect={setBody}
-        />
-        <List
-          list={currentListLegs}
-          title="Ноги"
-          isShow
-          onItemSelect={setLegs}
-        />
-      </aside>
-    </div>
+    </Router>
   );
 };
 

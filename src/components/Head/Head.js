@@ -1,21 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import "./style.scss";
+import { HeadWrapper } from "./styles";
 
 /**
  * Принимает изображение для маникена
  */
-
-export const HeadWrapper = styled.div`
-  svg {
-    width: 235px !important;
-    height: 200px !important;
-  }
-
-  #Face {
-    fill: ${(props) => props.fillColor} !important;
-  }
-`;
 const Head = ({ fillColor, svgCode }) => {
   return (
     <div className="Head">

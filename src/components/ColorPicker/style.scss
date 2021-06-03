@@ -19,4 +19,12 @@
   &__wrapper {
     padding: 15px 0 0;
   }
+  .twitter-picker {
+    @media (max-width: 1194px) {
+      width: 240px !important;
+    }
+    @media (max-width: 1024px) {
+      width: 209px !important;
+    }
+  }
 }

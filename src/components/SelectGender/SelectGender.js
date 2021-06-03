@@ -17,18 +17,28 @@ const SelectGender = ({ gender, onItemSelect }) => {
     localStorage.setItem("genderDefault", event.target.value);
   };
   return (
-    <>
+    <div className="App_selectGender">
       я
-      <Select id="select_1" value={gender} onChange={handleChange}>
+      <Select
+        className="select"
+        id="select_1"
+        value={gender}
+        onChange={handleChange}
+      >
         <MenuItem value={"man"}>парень</MenuItem>
         <MenuItem value={"woman"}>девушка</MenuItem>
       </Select>
       ищу
-      <Select id="select_2" value={gender} onChange={handleChange}>
+      <Select
+        className="select"
+        id="select_2"
+        value={gender}
+        onChange={handleChange}
+      >
         <MenuItem value={"man"}>девушку</MenuItem>
         <MenuItem value={"woman"}>парня</MenuItem>
       </Select>
-    </>
+    </div>
   );
 };
 
