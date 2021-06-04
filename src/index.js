@@ -4,7 +4,9 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+/**
+ * Context
+ */
 import {
   ACTION,
   INITIAL_STORE,
@@ -18,10 +20,6 @@ import {
 import { SceneGenerator } from "./components/SceneGenerator";
 import { Dating } from "./components/Dating/Dating";
 
-/**
- * Services
- */
-import { getLocSt } from "./services/localstorage";
 /**
  * styles
  */
