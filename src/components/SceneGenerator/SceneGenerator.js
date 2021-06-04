@@ -12,7 +12,10 @@ import { Head } from "../Head/Head";
 import { Body } from "../Body/Body";
 import { Legs } from "../Legs/Legs";
 import Nav from "../Nav";
-
+/**
+ * Services
+ */
+import { getLocSt } from "../../services/localstorage";
 /**
  * Data
  */
@@ -24,21 +27,26 @@ import {
   arLegsItemsGirl,
   arLegsItemsMan,
 } from "../../data";
-
 /**
  * Context
  */
 import { ACTION, StoreContext } from "../../context/storeContext";
+/**
+ * styles
+ */
+import "./style.scss";
 
-const SceneGenerator = ({}) => {
-  const { state, dispatch } = useContext(StoreContext);
-
+/**
+ * SceneGenerator
+ */
+const SceneGenerator = () => {
   // set default gender
-  let genderDefault = "man";
-  let genderFromLocSt = localStorage.getItem("genderDefault");
-  if (genderFromLocSt) {
-    genderDefault = genderFromLocSt;
-  }
+  let genderDefault = getLocSt("genderDefault") || "man";
+
+  /* CONTEXT */
+  // @ see https://ru.reactjs.org/docs/hooks-reference.html#usecontext
+  const { state, dispatch } = useContext(StoreContext);
+  //console.log("файл SceneGenerator.js, состояние state = ", state);
 
   const [head, setHead] = useState(false);
   const [body, setBody] = useState(false);
@@ -52,21 +60,34 @@ const SceneGenerator = ({}) => {
     setLegs(false);
   }, [gender]);
 
-  // debugger;
+  const updateHead = (newData) => {
+    // console.log("Файл scenegenerator.js, updateHead, newData = ", newData);
+    setHead(newData);
+    dispatch({ action: ACTION.UPDATE_HEAD, data: newData });
+  };
+  const updateBody = (newData) => {
+    // console.log("Файл scenegenerator.js, updateHead, newData = ", newData);
+    setBody(newData);
+    dispatch({ action: ACTION.UPDATE_BODY, data: newData });
+  };
+  const updateLegs = (newData) => {
+    //console.log("updateBody newData = ", newData);
+    setLegs(newData);
+    dispatch({ action: ACTION.UPDATE_LEGS, data: newData });
+  };
 
+  //@todo: передавать в стор цвет по умолчанию, иначе разные света будут
+
+  const updateColor = (newData) => {
+    setSkinColor(newData);
+    dispatch({ action: ACTION.UPDATE_COLOR, data: newData });
+  };
+
+  // установка пиктограм в зависимости от пола
   let currentListHead = gender === "woman" ? arHeadsItemsMan : arHeadsItemsGirl;
   let currentListBody =
     gender === "woman" ? arBodiesItemsMan : arBodiesItemsGirl;
   let currentListLegs = gender === "woman" ? arLegsItemsMan : arLegsItemsGirl;
-
-  // ??? @see https://coderoad.ru/40256673/getElementById-%D0%B2-React
-  // const btn = document.getElementById("doNothing");
-  // console.log(btn);
-
-  const updateHead = (newData) => {
-    setHead(newData);
-    dispatch({ action: ACTION.UPDATE_HEAD, data: newData });
-  };
 
   return (
     <div className="App">
@@ -85,29 +106,25 @@ const SceneGenerator = ({}) => {
           onItemSelect={updateHead}
           genderType={gender}
         />
-        <ColorPicker
-          title="Цвет кожи"
-          isShow
-          onSkinColorSelect={setSkinColor}
-        />
+        <ColorPicker title="Цвет кожи" isShow onSkinColorSelect={updateColor} />
       </aside>
       <div className="App__mannequin">
         {head && <Head fillColor={skinColor} svgCode={state.head.preview} />}
-        {body && <Body fillColor={skinColor} svgCode={body.preview} />}
-        {legs && <Legs fillColor={skinColor} svgCode={legs.preview} />}
+        {body && <Body fillColor={skinColor} svgCode={state.body.preview} />}
+        {legs && <Legs fillColor={skinColor} svgCode={state.legs.preview} />}
       </div>
       <aside className="App__aside--rigth">
         <List
           list={currentListBody}
           title="Тело и верхняя одежда"
           isShow
-          onItemSelect={setBody}
+          onItemSelect={updateBody}
         />
         <List
           list={currentListLegs}
           title="Ноги"
           isShow
-          onItemSelect={setLegs}
+          onItemSelect={updateLegs}
         />
         <Nav />
       </aside>
