@@ -40,6 +40,9 @@ export default function LinearBuffer() {
 
   return (
     <div className={classes.root}>
+      <div className="title">
+        Загружаем твое самое классное свидание &#128515;
+      </div>
       <LinearProgress
         variant="buffer"
         color="secondary"
