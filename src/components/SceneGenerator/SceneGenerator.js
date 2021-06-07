@@ -30,7 +30,11 @@ import {
 /**
  * Context
  */
-import { ACTION, StoreContext } from "../../context/storeContext";
+import {
+  ACTION,
+  StoreContext,
+  DEFAULT_SKIN_COLOR,
+} from "../../context/storeContext";
 /**
  * styles
  */
