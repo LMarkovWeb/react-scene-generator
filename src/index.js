@@ -1,34 +1,20 @@
 /**
  * React
  */
-import React, { useEffect, useState } from "react";
+import React, { useReducer } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+/**
+ * Context
+ */
+import { ACTION, INITIAL_STORE, Provider } from "./context/storeContext";
 
 /**
  * Components
  */
-import { List } from "./components/List/List";
-import { Head } from "./components/Head/Head";
-import { Legs } from "./components/Legs/Legs";
-import { Body } from "./components/Body/Body";
-import { SelectGender } from "./components/SelectGender/SelectGender";
-import { ColorPicker } from "./components/ColorPicker/ColorPicker";
-import {
-  arHeadsItemsGirl,
-  arHeadsItemsMan,
-  arBodiesItemsGirl,
-  arBodiesItemsMan,
-  arLegsItemsGirl,
-  arLegsItemsMan,
-} from "./data";
-import Nav from "./components/Nav";
-import Dating from "./components/Dating/Dating";
+import { SceneGenerator } from "./components/SceneGenerator/SceneGenerator";
+import { Dating } from "./components/Dating/Dating";
 
-/**
- * Services
- */
-import { getLocSt } from "./services/localstorage";
 /**
  * styles
  */
@@ -40,85 +26,49 @@ import "./index.scss";
  * App
  */
 const App = () => {
-  // set default gender
-  let genderDefault = getLocSt("genderDefault") || "man";
+  const reducer = (currentState, payload) => {
+    // console.log("currentState >> ", currentState);
+    // console.log("payload.data >> ", payload.data);
+    switch (payload.action) {
+      case ACTION.UPDATE_HEAD:
+        return {
+          ...currentState,
+          head: payload.data,
+        };
+      case ACTION.UPDATE_BODY:
+        return {
+          ...currentState,
+          body: payload.data,
+        };
+      case ACTION.UPDATE_LEGS:
+        return {
+          ...currentState,
+          legs: payload.data,
+        };
+      case ACTION.UPDATE_COLOR:
+        return {
+          ...currentState,
+          skinColor: payload.data,
+        };
+    }
+  };
 
-  const [head, setHead] = useState(false);
-  const [body, setBody] = useState(false);
-  const [legs, setLegs] = useState(false);
-  const [skinColor, setSkinColor] = useState("#FFDFC4");
-  const [gender, setGender] = useState(genderDefault);
-
-  useEffect(() => {
-    setHead(false);
-    setBody(false);
-    setLegs(false);
-  }, [gender]);
-
-  // debugger;
-
-  let currentListHead = gender === "woman" ? arHeadsItemsMan : arHeadsItemsGirl;
-  let currentListBody =
-    gender === "woman" ? arBodiesItemsMan : arBodiesItemsGirl;
-  let currentListLegs = gender === "woman" ? arLegsItemsMan : arLegsItemsGirl;
-
-  // ??? @see https://coderoad.ru/40256673/getElementById-%D0%B2-React
-  // const btn = document.getElementById("doNothing");
-  // console.log(btn);
+  const [state, dispatch] = useReducer(reducer, INITIAL_STORE);
+  //console.log("файл index.js, состояние state = ", state);
 
   return (
-    <Router>
-      <div className="App">
+    <Provider value={{ state, dispatch }}>
+      <Router>
         <Switch>
           <Route path="/dating">
             <Dating />
           </Route>
           <Route path="/">
-            <SelectGender gender={gender} onItemSelect={setGender} />
-
-            <aside className="App__aside--left">
-              <h1>
-                {gender === "man"
-                  ? "Создай свою идеальную девушку"
-                  : "Создай своего идеального парня"}
-              </h1>
-              <List
-                list={currentListHead}
-                title="Голова и прическа"
-                isShow
-                onItemSelect={setHead}
-                genderType={gender}
-              />
-              <ColorPicker
-                title="Цвет кожи"
-                isShow
-                onSkinColorSelect={setSkinColor}
-              />
-            </aside>
-            <div className="App__mannequin">
-              {head && <Head fillColor={skinColor} svgCode={head.preview} />}
-              {body && <Body fillColor={skinColor} svgCode={body.preview} />}
-              {legs && <Legs fillColor={skinColor} svgCode={legs.preview} />}
-            </div>
-            <aside className="App__aside--rigth">
-              <List
-                list={currentListBody}
-                title="Тело и верхняя одежда"
-                isShow
-                onItemSelect={setBody}
-              />
-              <List
-                list={currentListLegs}
-                title="Ноги"
-                isShow
-                onItemSelect={setLegs}
-              />
-              <Nav />
-            </aside>
+            <SceneGenerator />
           </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   );
 };
 

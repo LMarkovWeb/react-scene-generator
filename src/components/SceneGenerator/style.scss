@@ -1,0 +1,96 @@
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 35px 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "App_selectGender App_selectGender App_selectGender"
+    "App__aside--left App__mannequin App__aside--rigth";
+  height: calc(100vh - 130px);
+  background-color: #f2f6fb;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 20px 40px 40px;
+  width: 70%;
+  max-width: 1200px;
+  border-radius: 20px;
+
+  &__selectGender {
+    grid-area: App_selectGender;
+  }
+  &__mannequin {
+    position: relative;
+    grid-area: App__mannequin;
+    z-index: 0;
+    pointer-events: none;
+  }
+  &__aside--left {
+    grid-area: App__aside--left;
+
+    @media (max-width: 1994px) {
+      h1 {
+        font-size: 1.7em;
+        width: 250px;
+      }
+    }
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 1.5em;
+        width: 225px;
+      }
+    }
+  }
+  &__aside--rigth {
+    grid-area: App__aside--rigth;
+    position: relative;
+    z-index: 3;
+    margin-top: 40px;
+
+    @media (max-width: 767px) {
+      margin-top: 10px;
+    }
+  }
+
+  .intro {
+    text-indent: 15px;
+    padding: 20px 0px 20px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  @media (max-width: 1194px) {
+    grid-template-columns: max-content 1fr max-content;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: 767px) {
+    grid-template-rows: 35px max-content;
+    grid-template-areas:
+      "App_selectGender App_selectGender"
+      "App__aside--left App__mannequin"
+      "App__aside--rigth App__mannequin";
+  }
+}
+
+.Background {
+  background-color: white;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 10px;
+
+  &__title {
+    font-size: 20px;
+    cursor: pointer;
+
+    span {
+      border-bottom: 1px dashed #444;
+    }
+
+    :hover {
+      border-bottom: none;
+    }
+  }
+  &__wrapper {
+    padding: 15px 0 0;
+  }
+}

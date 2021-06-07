@@ -1,3 +1,6 @@
+/**
+ * React
+ */
 import React, { useState } from "react";
 /**
  * React Color
@@ -10,9 +13,10 @@ import { TwitterPicker } from "react-color";
 import "./style.scss";
 
 /**
-  @todo Настройка TwitterPicker. Свои цвета https://casesandberg.github.io/react-color/#api-individual
-*/
-
+ * ColorPicker
+ * @param {*} param0
+ * @returns
+ */
 const ColorPicker = ({ title, isShow, onSkinColorSelect }) => {
   const [isShowState, setShow] = useState(isShow);
 
