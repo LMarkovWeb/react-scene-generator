@@ -10,14 +10,17 @@ const StyledPreview = styled.span`
   }
 `;
 
+const screenWide = window.screen.width;
+const mobileDevices = 480;
+const isMobileDevices = screenWide < mobileDevices;
+
 function List({ list, title, isShow, onItemSelect }) {
-  const [isShowState, setShow] = useState(false);
+  const [isShowState, setShow] = useState(!isMobileDevices);
 
   useEffect(() => {
-    if (isShow) {
+    if (isShow && !isMobileDevices) {
       setShow(true);
     }
-    //console.log("isShow :>> ", title, isShow);
   }, [isShow]);
 
   return (
