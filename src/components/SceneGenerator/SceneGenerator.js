@@ -92,10 +92,10 @@ const SceneGenerator = () => {
   let currentListLegs = gender === "woman" ? arLegsItemsMan : arLegsItemsGirl;
 
   return (
-    <div className="App">
+    <div className="SceneGenerator">
       <SelectGender gender={gender} onItemSelect={setGender} />
 
-      <aside className="App__aside--left">
+      <aside className="SceneGenerator__aside--left">
         <h1>
           {gender === "man"
             ? "Создай свою идеальную девушку"
@@ -110,12 +110,12 @@ const SceneGenerator = () => {
         />
         <ColorPicker title="Цвет кожи" isShow onSkinColorSelect={updateColor} />
       </aside>
-      <div className="App__mannequin">
+      <div className="SceneGenerator__mannequin">
         {head && <Head fillColor={skinColor} svgCode={state.head.preview} />}
         {body && <Body fillColor={skinColor} svgCode={state.body.preview} />}
         {legs && <Legs fillColor={skinColor} svgCode={state.legs.preview} />}
       </div>
-      <aside className="App__aside--rigth">
+      <aside className="SceneGenerator__aside--rigth">
         <List
           list={currentListBody}
           title="Тело и верхняя одежда"

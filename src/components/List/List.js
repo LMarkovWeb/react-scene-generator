@@ -11,7 +11,7 @@ const StyledPreview = styled.span`
 `;
 
 const screenWide = window.screen.width;
-const mobileDevices = 480;
+const mobileDevices = 640;
 const isMobileDevices = screenWide < mobileDevices;
 
 function List({ list, title, isShow, onItemSelect }) {

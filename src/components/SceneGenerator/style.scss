@@ -1,19 +1,51 @@
-.App {
+.SceneGenerator {
+  padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 35px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content max-content max-content max-content;
   gap: 0px 0px;
   grid-template-areas:
+    "App_selectGender"
+    "App__aside--left"
+    "App__aside--rigth"
+    "App__mannequin";
+  grid-gap: 20px;
+
+
+  @media screen and (min-width: 767px){
+    grid-template-areas:
+    "App_selectGender App_selectGender"
+    "App__aside--left App__aside--rigth"
+    "App__mannequin App__mannequin";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 1023px){
+    grid-template-areas:
     "App_selectGender App_selectGender App_selectGender"
     "App__aside--left App__mannequin App__aside--rigth";
-  height: calc(100vh - 130px);
-  background-color: #f2f6fb;
-  overflow: hidden;
-  margin: 0 auto;
-  padding: 20px 40px 40px;
-  width: 70%;
-  max-width: 1200px;
-  border-radius: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 35px 1fr;
+    background-color: #f2f6fb;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 20px;
+  }
+
+
+  //@media (max-width: 1194px) {
+  //  grid-template-columns: max-content 1fr max-content;
+  //  padding-left: 20px;
+  //  padding-right: 20px;
+  //}
+  //
+  //@media (max-width: 767px) {
+  //  grid-template-rows: 35px max-content;
+  //  grid-template-areas:
+  //    "App_selectGender App_selectGender"
+  //    "App__aside--left App__mannequin"
+  //    "App__aside--rigth App__mannequin";
+  //}
 
   &__selectGender {
     grid-area: App_selectGender;
@@ -23,6 +55,9 @@
     grid-area: App__mannequin;
     z-index: 0;
     pointer-events: none;
+    display: grid;
+    text-align: center;
+    grid-template-rows: 160px 160px 300px;
   }
   &__aside--left {
     grid-area: App__aside--left;
@@ -44,10 +79,10 @@
     grid-area: App__aside--rigth;
     position: relative;
     z-index: 3;
-    margin-top: 40px;
+    //margin-top: 40px;
 
     @media (max-width: 767px) {
-      margin-top: 10px;
+      //margin-top: 10px;
     }
   }
 
@@ -58,25 +93,13 @@
     text-align: center;
     line-height: 1.4;
   }
-  @media (max-width: 1194px) {
-    grid-template-columns: max-content 1fr max-content;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  @media (max-width: 767px) {
-    grid-template-rows: 35px max-content;
-    grid-template-areas:
-      "App_selectGender App_selectGender"
-      "App__aside--left App__mannequin"
-      "App__aside--rigth App__mannequin";
-  }
 }
 
 .Background {
   background-color: white;
   padding: 8px;
   border-radius: 8px;
-  margin-top: 10px;
+  //margin-top: 10px;
 
   &__title {
     font-size: 20px;
