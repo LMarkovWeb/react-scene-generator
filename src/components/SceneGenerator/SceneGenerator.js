@@ -80,8 +80,6 @@ const SceneGenerator = () => {
     dispatch({ action: ACTION.UPDATE_LEGS, data: newData });
   };
 
-  //@todo: передавать в стор цвет по умолчанию, иначе разные света будут
-
   const updateColor = (newData) => {
     setSkinColor(newData);
     dispatch({ action: ACTION.UPDATE_COLOR, data: newData });
