@@ -10,6 +10,10 @@ import { Head } from "../Head/Head";
 import { Body } from "../Body/Body";
 import { Legs } from "../Legs/Legs";
 /**
+ * Data
+ */
+import { arBodiesItemsMan, arHeadsItemsMan, arLegsItemsMan } from "../../data";
+/**
  * Services
  */
 import "../../services/localstorage";
@@ -67,10 +71,7 @@ const Dating = () => {
       </div>
       <div className="Dialog"></div>
       <div className="Actor--right">
-        {/* {console.log(
-          "component Dating, genderDefault = ",
-          getLocSt("genderDefault")
-        )} */}
+        <Head />
       </div>
     </div>
   );
