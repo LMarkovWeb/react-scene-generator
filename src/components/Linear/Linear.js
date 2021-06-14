@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LinearBuffer() {
+export default function LinearBuffer({ onFinished }) {
   const classes = useStyles();
   const [progress, setProgress] = React.useState(0);
   const [buffer, setBuffer] = React.useState(10);
@@ -17,6 +17,7 @@ export default function LinearBuffer() {
   React.useEffect(() => {
     progressRef.current = () => {
       if (progress > 100) {
+        onFinished();
         setProgress(0);
         setBuffer(10);
       } else {
