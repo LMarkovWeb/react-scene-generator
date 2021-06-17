@@ -16,7 +16,7 @@ import { arBodiesItemsMan, arHeadsItemsMan, arLegsItemsMan } from "../../data";
 /**
  * Services
  */
-import "../../services/localstorage";
+import { getLocSt } from "../../services/localstorage";
 /**
  * Context
  */
@@ -25,7 +25,6 @@ import { StoreContext } from "../../context/storeContext";
  * styles
  */
 import "./style.scss";
-import { getLocSt } from "../../services/localstorage";
 
 const dialogs = {
   1: {
@@ -48,11 +47,9 @@ const dialogs = {
 };
 
 const Dating = () => {
-  const { state, dispatch } = useContext(StoreContext);
+  const { state } = useContext(StoreContext);
   const [isProgressLoaded, setProgress] = useState(false);
   //console.log("Файл Dating.js, state >> ", state);
-
-  // @todo: показ дефолтного партнера
 
   return (
     <div className="Dating">
