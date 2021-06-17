@@ -2,10 +2,15 @@
   position: absolute;
   width: 235px;
   left: 30px;
-  top: 58px;
+  top: 20px;
 
   &__img {
     display: block;
     width: 100%;
+  }
+
+  @media (min-width: 1194px) {
+    left: 77px;
+    top: -3px;
   }
 }

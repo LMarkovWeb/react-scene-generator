@@ -11,7 +11,7 @@ import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { Head } from "../Head/Head";
 import { Body } from "../Body/Body";
 import { Legs } from "../Legs/Legs";
-import Nav from "../Nav";
+import { Nav } from "../Nav/nav";
 /**
  * Services
  */
@@ -93,14 +93,17 @@ const SceneGenerator = () => {
 
   return (
     <div className="SceneGenerator">
-      <SelectGender gender={gender} onItemSelect={setGender} />
-
-      <aside className="SceneGenerator__aside--left">
+      <div className="SceneGenerator__title">
         <h1>
           {gender === "man"
             ? "Создай свою идеальную девушку"
             : "Создай своего идеального парня"}
         </h1>
+      </div>
+      <div className="SceneGenerator__selectGender">
+        <SelectGender gender={gender} onItemSelect={setGender} />
+      </div>
+      <aside className="SceneGenerator__aside--left">
         <List
           list={currentListHead}
           title="Голова и прическа"
@@ -114,6 +117,7 @@ const SceneGenerator = () => {
         {head && <Head fillColor={skinColor} svgCode={state.head.preview} />}
         {body && <Body fillColor={skinColor} svgCode={state.body.preview} />}
         {legs && <Legs fillColor={skinColor} svgCode={state.legs.preview} />}
+        <div className="mannequin__bgrd"></div>
       </div>
       <aside className="SceneGenerator__aside--rigth">
         <List
@@ -128,8 +132,10 @@ const SceneGenerator = () => {
           isShow
           onItemSelect={updateLegs}
         />
-        <Nav />
       </aside>
+      <div className="SceneGenerator__nav">
+        <Nav />
+      </div>
     </div>
   );
 };

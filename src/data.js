@@ -164,10 +164,6 @@ const arBodiesItemsMan = [
     preview: <ManBody5 />,
   },
   {
-    title: "Кофта",
-    preview: <ManBody6 />,
-  },
-  {
     title: "Футболка бежевая",
     preview: <ManBody7 />,
   },

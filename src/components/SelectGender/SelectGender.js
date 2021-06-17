@@ -21,7 +21,7 @@ const SelectGender = ({ gender, onItemSelect }) => {
     setLocSt("genderDefault", event.target.value);
   };
   return (
-    <div className="App_selectGender">
+    <>
       я
       <Select
         className="select"
@@ -42,7 +42,7 @@ const SelectGender = ({ gender, onItemSelect }) => {
         <MenuItem value={"man"}>девушку</MenuItem>
         <MenuItem value={"woman"}>парня</MenuItem>
       </Select>
-    </div>
+    </>
   );
 };
 
