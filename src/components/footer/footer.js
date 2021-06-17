@@ -1,10 +1,21 @@
-import React from "react";
+// в файле index.html должен быть подключен скрипт share.js
 
+/**
+ * React
+ */
+import React from "react";
+/**
+ * Styles
+ */
+import "./styles.scss";
+
+/**
+ * Footer
+ */
 const Footer = () => {
   return (
-    <div>
-      <script src="https://yastatic.net/share2/share.js"></script>
-      <div
+    <footer className="Footer">
+      <section
         class="ya-share2"
         data-curtain
         data-size="l"
@@ -12,8 +23,8 @@ const Footer = () => {
         data-color-scheme="blackwhite"
         data-limit="4"
         data-services="vkontakte,facebook,telegram,whatsapp"
-      ></div>
-      <div id="cr">
+      ></section>
+      <section id="cr">
         <div>
           Создано на основе макета:
           <a
@@ -46,8 +57,8 @@ const Footer = () => {
           </a>
         </div>
         <div>2021</div>
-      </div>
-    </div>
+      </section>
+    </footer>
   );
 };
 
