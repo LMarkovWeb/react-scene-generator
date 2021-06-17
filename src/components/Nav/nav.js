@@ -22,7 +22,7 @@ if (getLocSt("genderDefault") == "woman") {
   canDating = false;
 }
 
-export default () => {
+const Nav = () => {
   const [nothing, setNothing] = useState(false);
 
   return (
@@ -39,3 +39,5 @@ export default () => {
     </nav>
   );
 };
+
+export { Nav };
