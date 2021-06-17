@@ -1,0 +1,16 @@
+.Footer {
+  margin-top: 40px;
+  color: #999;
+
+  .ya-share2 {
+    text-align: center;
+  }
+  a {
+    display: inline;
+    color: #888;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
