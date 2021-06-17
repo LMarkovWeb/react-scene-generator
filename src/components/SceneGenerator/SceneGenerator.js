@@ -110,10 +110,12 @@ const SceneGenerator = () => {
         <ColorPicker title="Цвет кожи" isShow onSkinColorSelect={updateColor} />
       </aside>
       <div className="SceneGenerator__mannequin">
-        {head && <Head fillColor={skinColor} svgCode={state.head.preview} />}
-        {body && <Body fillColor={skinColor} svgCode={state.body.preview} />}
-        {legs && <Legs fillColor={skinColor} svgCode={state.legs.preview} />}
-        <div className="mannequin__bgrd"></div>
+        <div className="Mannequin">
+          {head && <Head fillColor={skinColor} svgCode={state.head.preview} />}
+          {body && <Body fillColor={skinColor} svgCode={state.body.preview} />}
+          {legs && <Legs fillColor={skinColor} svgCode={state.legs.preview} />}
+          <div className="Mannequin__bgrd"></div>
+        </div>
       </div>
       <aside className="SceneGenerator__aside--rigth">
         <List

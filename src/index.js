@@ -14,6 +14,7 @@ import { ACTION, INITIAL_STORE, StoreProvider } from "./context/storeContext";
  */
 import { SceneGenerator } from "./components/SceneGenerator/SceneGenerator";
 import { Dating } from "./components/Dating/Dating";
+import { Footer } from "./components/footer/footer";
 
 /**
  * styles
@@ -75,9 +76,11 @@ const App = () => {
         <Switch>
           <Route path="/dating">
             <Dating />
+            <Footer />
           </Route>
           <Route path="/">
             <SceneGenerator />
+            <Footer />
           </Route>
         </Switch>
       </Router>
