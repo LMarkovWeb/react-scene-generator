@@ -11,7 +11,7 @@ import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { Head } from "../Head/Head";
 import { Body } from "../Body/Body";
 import { Legs } from "../Legs/Legs";
-import Nav from "../Nav";
+import { Nav } from "../Nav/nav";
 /**
  * Services
  */
@@ -80,8 +80,6 @@ const SceneGenerator = () => {
     dispatch({ action: ACTION.UPDATE_LEGS, data: newData });
   };
 
-  //@todo: передавать в стор цвет по умолчанию, иначе разные света будут
-
   const updateColor = (newData) => {
     setSkinColor(newData);
     dispatch({ action: ACTION.UPDATE_COLOR, data: newData });
@@ -94,15 +92,18 @@ const SceneGenerator = () => {
   let currentListLegs = gender === "woman" ? arLegsItemsMan : arLegsItemsGirl;
 
   return (
-    <div className="App">
-      <SelectGender gender={gender} onItemSelect={setGender} />
-
-      <aside className="App__aside--left">
+    <div className="SceneGenerator">
+      <div className="SceneGenerator__title">
         <h1>
           {gender === "man"
             ? "Создай свою идеальную девушку"
             : "Создай своего идеального парня"}
         </h1>
+      </div>
+      <div className="SceneGenerator__selectGender">
+        <SelectGender gender={gender} onItemSelect={setGender} />
+      </div>
+      <aside className="SceneGenerator__aside--left">
         <List
           list={currentListHead}
           title="Голова и прическа"
@@ -112,12 +113,13 @@ const SceneGenerator = () => {
         />
         <ColorPicker title="Цвет кожи" isShow onSkinColorSelect={updateColor} />
       </aside>
-      <div className="App__mannequin">
+      <div className="SceneGenerator__mannequin">
         {head && <Head fillColor={skinColor} svgCode={state.head.preview} />}
         {body && <Body fillColor={skinColor} svgCode={state.body.preview} />}
         {legs && <Legs fillColor={skinColor} svgCode={state.legs.preview} />}
+        <div className="mannequin__bgrd"></div>
       </div>
-      <aside className="App__aside--rigth">
+      <aside className="SceneGenerator__aside--rigth">
         <List
           list={currentListBody}
           title="Тело и верхняя одежда"
@@ -130,8 +132,10 @@ const SceneGenerator = () => {
           isShow
           onItemSelect={updateLegs}
         />
-        <Nav />
       </aside>
+      <div className="SceneGenerator__nav">
+        <Nav />
+      </div>
     </div>
   );
 };

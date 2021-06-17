@@ -12,13 +12,17 @@ import { TwitterPicker } from "react-color";
  */
 import "./style.scss";
 
+const screenWide = window.screen.width;
+const mobileDevices = 640;
+const isMobileDevices = screenWide < mobileDevices;
+
 /**
  * ColorPicker
  * @param {*} param0
  * @returns
  */
 const ColorPicker = ({ title, isShow, onSkinColorSelect }) => {
-  const [isShowState, setShow] = useState(isShow);
+  const [isShowState, setShow] = useState(!isMobileDevices && isShow);
 
   const initColor = "#FFDFC4";
 

@@ -1,24 +1,18 @@
 import styled from "styled-components";
 export const HeadWrapper = styled.div`
   svg {
-    width: 235px !important;
-    height: 200px !important;
+    width: 179px !important;
+    height: 166px !important;
   }
 
   #Face {
     fill: ${(props) => props.fillColor} !important;
   }
 
-  @media (max-width: 1194px) {
+  @media (min-width: 1194px) {
     svg {
-      width: 179px !important;
-      height: 166px !important;
+      width: 195px !important;
+      height: 189px !important;
     }
-  }
-  @media (max-width: 1024px) {
-  }
-  @media (max-width: 767px) {
-  }
-  @media (max-width: 480px) {
   }
 `;

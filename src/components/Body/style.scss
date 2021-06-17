@@ -1,12 +1,17 @@
 .Body {
   position: absolute;
   width: 254px;
-  left: 53px;
-  top: 141px;
+  left: 39px;
+  top: 101px;
   z-index: 1;
 
   &__img {
     display: block;
     width: 100%;
+  }
+
+  @media (min-width: 1194px) {
+    left: 86px;
+    top: 99px;
   }
 }

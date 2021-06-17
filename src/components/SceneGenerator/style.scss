@@ -1,38 +1,94 @@
-.App {
+/* mobile first */
+.SceneGenerator {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 35px 1fr;
-  gap: 0px 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content max-content max-content max-content max-content max-content;
   grid-template-areas:
-    "App_selectGender App_selectGender App_selectGender"
-    "App__aside--left App__mannequin App__aside--rigth";
-  height: calc(100vh - 130px);
+    "SceneGenerator__title"
+    "SceneGenerator__selectGender"
+    "SceneGenerator__mannequin"
+    "SceneGenerator__aside--left"
+    "SceneGenerator__aside--rigth"
+    "SceneGenerator__nav";
+  grid-gap: 0 20px 20px;
   background-color: #f2f6fb;
-  overflow: hidden;
-  margin: 0 auto;
-  padding: 20px 40px 40px;
-  width: 70%;
-  max-width: 1200px;
-  border-radius: 20px;
+  padding: 0 20px 20px;
 
-  &__selectGender {
-    grid-area: App_selectGender;
+  @media screen and (min-width: 639px) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: max-content max-content max-content max-content;
+    grid-template-areas:
+      "SceneGenerator__title SceneGenerator__title"
+      "SceneGenerator__selectGender SceneGenerator__selectGender"
+      "SceneGenerator__mannequin SceneGenerator__nav"
+      "SceneGenerator__aside--left SceneGenerator__aside--rigth";
   }
-  &__mannequin {
-    position: relative;
-    grid-area: App__mannequin;
-    z-index: 0;
-    pointer-events: none;
-  }
-  &__aside--left {
-    grid-area: App__aside--left;
 
-    @media (max-width: 1994px) {
-      h1 {
-        font-size: 1.7em;
-        width: 250px;
+  @media screen and (min-width: 767px) {
+    grid-template-columns: 0.75fr 1fr 0.75fr;
+    grid-template-rows: max-content max-content max-content max-content;
+    grid-template-areas:
+      "SceneGenerator__title SceneGenerator__title SceneGenerator__title"
+      "SceneGenerator__selectGender SceneGenerator__selectGender SceneGenerator__selectGender"
+      "SceneGenerator__aside--left SceneGenerator__mannequin SceneGenerator__aside--rigth"
+      ". . SceneGenerator__nav";
+    background-color: #f2f6fb;
+    margin: 0 auto;
+    max-width: 1200px;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width: 1023px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &__title {
+    grid-area: SceneGenerator__title;
+
+    h1 {
+      font-size: 1.3em;
+
+      @media screen and (min-width: 767px) {
+        font-size: 1.5em;
+      }
+      @media screen and (min-width: 1023px) {
+        font-size: 1.9em;
       }
     }
+  }
+
+  &__selectGender {
+    grid-area: SceneGenerator__selectGender;
+
+    @media screen and (min-width: 1023px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__mannequin {
+    grid-area: SceneGenerator__mannequin;
+    grid-template-rows: 160px 160px 260px;
+    display: grid;
+    position: relative;
+    z-index: 0;
+    pointer-events: none;
+    text-align: center;
+
+    .mannequin__bgrd {
+      width: 70%;
+      height: 38%;
+      background: #ffd4d485;
+      border-radius: 50%;
+      z-index: -1;
+      position: absolute;
+      top: 26%;
+      left: 14%;
+    }
+  }
+
+  &__aside--left {
+    grid-area: SceneGenerator__aside--left;
+
     @media (max-width: 1024px) {
       h1 {
         font-size: 1.5em;
@@ -40,57 +96,15 @@
       }
     }
   }
+
   &__aside--rigth {
-    grid-area: App__aside--rigth;
+    grid-area: SceneGenerator__aside--rigth;
     position: relative;
     z-index: 3;
-    margin-top: 40px;
-
-    @media (max-width: 767px) {
-      margin-top: 10px;
-    }
   }
 
-  .intro {
-    text-indent: 15px;
-    padding: 20px 0px 20px;
-    font-size: 18px;
-    text-align: center;
-    line-height: 1.4;
-  }
-  @media (max-width: 1194px) {
-    grid-template-columns: max-content 1fr max-content;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  @media (max-width: 767px) {
-    grid-template-rows: 35px max-content;
-    grid-template-areas:
-      "App_selectGender App_selectGender"
-      "App__aside--left App__mannequin"
-      "App__aside--rigth App__mannequin";
-  }
-}
-
-.Background {
-  background-color: white;
-  padding: 8px;
-  border-radius: 8px;
-  margin-top: 10px;
-
-  &__title {
-    font-size: 20px;
-    cursor: pointer;
-
-    span {
-      border-bottom: 1px dashed #444;
-    }
-
-    :hover {
-      border-bottom: none;
-    }
-  }
-  &__wrapper {
-    padding: 15px 0 0;
+  &__nav {
+    grid-area: SceneGenerator__nav;
+    margin: 20px auto 20px;
   }
 }

@@ -1,7 +1,7 @@
 /**
  * React
  */
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 /**
  * Components
  */
@@ -9,6 +9,10 @@ import Linear from "../Linear/Linear";
 import { Head } from "../Head/Head";
 import { Body } from "../Body/Body";
 import { Legs } from "../Legs/Legs";
+/**
+ * Data
+ */
+import { arBodiesItemsMan, arHeadsItemsMan, arLegsItemsMan } from "../../data";
 /**
  * Services
  */
@@ -45,6 +49,7 @@ const dialogs = {
 
 const Dating = () => {
   const { state, dispatch } = useContext(StoreContext);
+  const [isProgressLoaded, setProgress] = useState(false);
   //console.log("Файл Dating.js, state >> ", state);
 
   // @todo: необходимость условия для гендера?
@@ -53,24 +58,23 @@ const Dating = () => {
 
   return (
     <div className="Dating">
-      <Linear />
-      <div className="Actor--left">
-        {state.head && (
-          <Head fillColor={state.skinColor} svgCode={state.head.preview} />
-        )}
-        {state.body && (
-          <Body fillColor={state.skinColor} svgCode={state.body.preview} />
-        )}
-        {state.legs && (
-          <Legs fillColor={state.skinColor} svgCode={state.legs.preview} />
-        )}
-      </div>
+      {!isProgressLoaded && <Linear onFinished={() => setProgress(true)} />}
+      {isProgressLoaded && (
+        <div className="Actor--left">
+          {state.head && (
+            <Head fillColor={state.skinColor} svgCode={state.head.preview} />
+          )}
+          {state.body && (
+            <Body fillColor={state.skinColor} svgCode={state.body.preview} />
+          )}
+          {state.legs && (
+            <Legs fillColor={state.skinColor} svgCode={state.legs.preview} />
+          )}
+        </div>
+      )}
       <div className="Dialog"></div>
       <div className="Actor--right">
-        {/* {console.log(
-          "component Dating, genderDefault = ",
-          getLocSt("genderDefault")
-        )} */}
+        <Head />
       </div>
     </div>
   );

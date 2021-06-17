@@ -11,18 +11,26 @@ import { Button } from "@material-ui/core";
  * style
  */
 import "./style.scss";
+/**
+ * Services
+ */
+import { getLocSt } from "../../services/localstorage";
 
-// const Nothing = () => {
-//   return <Button id="doNothing">Ничего не делать &#128528;</Button>;
-// };
+// @todo: использовать useState или useEffect
+let canDating = true;
+if (getLocSt("genderDefault") == "woman") {
+  canDating = false;
+}
 
-export default () => {
+const Nav = () => {
   const [nothing, setNothing] = useState(false);
 
   return (
     <nav className="Nav">
       <Link to="/dating">
-        <Button color="secondary">Пойти на свидание &#10084;</Button>
+        {canDating && (
+          <Button color="secondary">Пойти на свидание &#10084;</Button>
+        )}
       </Link>
       <Button id="doNothing" onClick={() => setNothing(!nothing)}>
         Ничего не делать &#128528;
@@ -31,3 +39,5 @@ export default () => {
     </nav>
   );
 };
+
+export { Nav };
