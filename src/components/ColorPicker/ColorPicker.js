@@ -13,7 +13,7 @@ import { TwitterPicker } from "react-color";
 import "./style.scss";
 
 const screenWide = window.screen.width;
-const mobileDevices = 480;
+const mobileDevices = 640;
 const isMobileDevices = screenWide < mobileDevices;
 
 /**

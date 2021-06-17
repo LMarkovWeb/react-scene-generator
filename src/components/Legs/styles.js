@@ -2,23 +2,17 @@ import styled from "styled-components";
 
 export const LegsWrapper = styled.div`
   svg {
-    width: 435px !important;
-    height: 500px !important;
+    width: 351px !important;
+    height: 390px !important;
   }
 
   #Skin {
     fill: ${(props) => props.fillColor} !important;
   }
-  @media (max-width: 1194px) {
+  @media (min-width: 1194px) {
     svg {
-      width: 328px !important;
-      height: 386px !important;
+      width: 418px !important;
+      height: 461px !important;
     }
-  }
-  @media (max-width: 1024px) {
-  }
-  @media (max-width: 767px) {
-  }
-  @media (max-width: 480px) {
   }
 `;

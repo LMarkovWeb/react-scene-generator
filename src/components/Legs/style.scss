@@ -1,10 +1,15 @@
 .Legs {
   position: absolute;
-  left: 24px;
+  left: 15px;
   top: 189px;
 
   &__img {
     display: block;
     width: 100%;
+  }
+
+  @media (min-width: 1194px) {
+    left: 34px;
+    top: 198px;
   }
 }

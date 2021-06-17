@@ -1,8 +1,8 @@
 import styled from "styled-components";
 export const BodyWrapper = styled.div`
   svg {
-    width: 235px !important;
-    height: 350px !important;
+    width: 195px !important;
+    height: 274px !important;
   }
 
   #Skin,
@@ -10,16 +10,10 @@ export const BodyWrapper = styled.div`
   #Mask {
     fill: ${(props) => props.fillColor} !important;
   }
-  @media (max-width: 1194px) {
+  @media (min-width: 1194px) {
     svg {
-      width: 195px !important;
-      height: 274px !important;
+      width: 223px !important;
+      height: 289px !important;
     }
-  }
-  @media (max-width: 1024px) {
-  }
-  @media (max-width: 767px) {
-  }
-  @media (max-width: 480px) {
   }
 `;
