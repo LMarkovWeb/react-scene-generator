@@ -1,7 +1,7 @@
 /**
  * React
  */
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 /**
  * Components
  */
@@ -17,6 +17,7 @@ import { arBodiesItemsMan, arHeadsItemsMan, arLegsItemsMan } from "../../data";
  * Services
  */
 import { getLocSt } from "../../services/localstorage";
+import { getDialogsFromServer } from "../../services/dialogs";
 /**
  * Context
  */
@@ -26,30 +27,38 @@ import { StoreContext } from "../../context/storeContext";
  */
 import "./style.scss";
 
-const dialogs = {
-  1: {
-    1: "Привет, я горячий сексхазбент",
-    2: "&#128513; &#128513; ахах) это кто? аха сексхазбент - это зачет)",
-    3: "У меня есть интересная книжка, хочешь почитать?",
-    4: "Что за книжка? Познавательная?",
-    5: "Конечно! Хочешь почитаю тебе на ночь?",
-    6: "Ну раз познавательная, то это всегда актуально",
-    7: "У меня, вообще, замечательная библиотека, могу как нибуть показать &#128521;",
-  },
-  2: {
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
-  },
-};
-
+/**
+ * Component Dating
+ */
 const Dating = () => {
   const { state } = useContext(StoreContext);
   const [isProgressLoaded, setProgress] = useState(false);
-  //console.log("Файл Dating.js, state >> ", state);
+
+  const [dialogsData, setDialogsData] = useState([]); // для хранения массива диалогов из БД
+  const [dialogState4Render, updateDialog4Render] = useState([]); // для вывода диалогов на страницу
+
+  // Получения данных (с помощью getDialogsFromServer()) и обновления состояния компонента с помощью хука setDialogsData
+  const getDialogs = async () => {
+    const arrServerDialogs = await getDialogsFromServer(); // массив диалогов из базы
+    setDialogsData(arrServerDialogs); // сохранение массива диалогов в state
+  };
+  // Получение диалогов вначале загрузки страницы
+  useEffect(() => {
+    getDialogs();
+  }, []);
+  //console.log("dialogsData = ", dialogsData);
+
+  // Обновление блока с диалогами
+  useEffect(() => {
+    console.log("Обновление блока с диалогами");
+
+    const interval = setInterval(() => {
+      updateDialog4Render([]);
+      console.log("dialogState4Render >>", dialogState4Render);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="Dating">
