@@ -1,13 +1,13 @@
 /**
  * React
  */
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 /**
  * Context
  */
-import { ACTION, INITIAL_STORE, Provider } from "./context/storeContext";
+import { ACTION, INITIAL_STORE, StoreProvider } from "./context/storeContext";
 
 /**
  * Components
@@ -22,6 +22,12 @@ import { Footer } from "./components/footer/footer";
 import "normalize.css";
 import "fontsource-roboto";
 import "./index.scss";
+
+/**
+ *
+ *
+ */
+import { setLocSt } from "./services/localstorage";
 
 /**
  * App
@@ -51,14 +57,21 @@ const App = () => {
           ...currentState,
           skinColor: payload.data,
         };
+      default:
+        return currentState;
     }
   };
 
   const [state, dispatch] = useReducer(reducer, INITIAL_STORE);
   //console.log("файл index.js, состояние state = ", state);
 
+  //
+  useEffect(() => {
+    setLocSt("actorState", JSON.stringify(state));
+  }, [state]);
+
   return (
-    <Provider value={{ state, dispatch }}>
+    <StoreProvider value={{ state, dispatch }}>
       <Router>
         <Switch>
           <Route path="/dating">
@@ -71,7 +84,7 @@ const App = () => {
           </Route>
         </Switch>
       </Router>
-    </Provider>
+    </StoreProvider>
   );
 };
 

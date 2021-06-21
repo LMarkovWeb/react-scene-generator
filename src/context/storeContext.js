@@ -25,4 +25,5 @@ export const INITIAL_STORE = {
 // @see https://ru.reactjs.org/docs/context.html#reactcreatecontext
 export const StoreContext = React.createContext(INITIAL_STORE);
 
-export const { Provider, Consumer } = StoreContext;
+const StoreProvider = StoreContext.Provider;
+export { StoreProvider };

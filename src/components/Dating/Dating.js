@@ -16,7 +16,7 @@ import { arBodiesItemsMan, arHeadsItemsMan, arLegsItemsMan } from "../../data";
 /**
  * Services
  */
-import "../../services/localstorage";
+import { getLocSt } from "../../services/localstorage";
 /**
  * Context
  */
@@ -25,7 +25,6 @@ import { StoreContext } from "../../context/storeContext";
  * styles
  */
 import "./style.scss";
-import { getLocSt } from "../../services/localstorage";
 
 const dialogs = {
   1: {
@@ -48,19 +47,17 @@ const dialogs = {
 };
 
 const Dating = () => {
-  const { state, dispatch } = useContext(StoreContext);
+  const { state } = useContext(StoreContext);
   const [isProgressLoaded, setProgress] = useState(false);
   //console.log("Файл Dating.js, state >> ", state);
 
-  // @todo: необходимость условия для гендера?
-  // @todo: если сцена пуста, то сообщение. (при f5 стор пропадает)
-  // @todo: показ дефолтного партнера
-
   return (
     <div className="Dating">
-      {!isProgressLoaded && <Linear onFinished={() => setProgress(true)} />}
+      <div className="Dating__linear">
+        {!isProgressLoaded && <Linear onFinished={() => setProgress(true)} />}
+      </div>
       {isProgressLoaded && (
-        <div className="Actor--left">
+        <div className="Dating__Actor--left">
           {state.head && (
             <Head fillColor={state.skinColor} svgCode={state.head.preview} />
           )}
@@ -72,8 +69,8 @@ const Dating = () => {
           )}
         </div>
       )}
-      <div className="Dialog"></div>
-      <div className="Actor--right">
+      <div className="Dating__Dialog"></div>
+      <div className="Dating__Actor--right">
         <Head />
       </div>
     </div>

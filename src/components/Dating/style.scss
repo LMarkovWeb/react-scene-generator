@@ -1,9 +1,27 @@
 .Dating {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px 500px;
+  grid-template-areas: "Dating__linear Dating__linear Dating__linear" "Dating__Actor--left  Dating__Dialog Dating_Actor--right";
   background-image: url(./img/bgrd/bgrd_1.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  width: 818px;
-  height: 900px;
-  margin: 0 auto;
+
+  &__linear {
+    grid-area: Dating__linear;
+    margin: 10px;
+  }
+
+  &__Actor--left {
+    grid-area: Dating__Actor--left;
+  }
+
+  &__Dialog {
+    grid-area: Dating__Dialog;
+  }
+
+  &__Actor--right {
+    grid-area: Dating_Actor--right;
+  }
 }

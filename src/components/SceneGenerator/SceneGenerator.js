@@ -30,11 +30,7 @@ import {
 /**
  * Context
  */
-import {
-  ACTION,
-  StoreContext,
-  DEFAULT_SKIN_COLOR,
-} from "../../context/storeContext";
+import { ACTION, StoreContext } from "../../context/storeContext";
 /**
  * styles
  */
@@ -65,7 +61,7 @@ const SceneGenerator = () => {
   }, [gender]);
 
   const updateHead = (newData) => {
-    // console.log("Файл scenegenerator.js, updateHead, newData = ", newData);
+    //console.log("Файл scenegenerator.js, updateHead, newData = ", newData);
     setHead(newData);
     dispatch({ action: ACTION.UPDATE_HEAD, data: newData });
   };
