@@ -9,6 +9,7 @@ import Linear from "../Linear/Linear";
 import { Head } from "../Head/Head";
 import { Body } from "../Body/Body";
 import { Legs } from "../Legs/Legs";
+import { Dialog } from "../Dialog/Dialog";
 /**
  * Data
  */
@@ -35,30 +36,37 @@ const Dating = () => {
   const [isProgressLoaded, setProgress] = useState(false);
 
   const [dialogsData, setDialogsData] = useState([]); // для хранения массива диалогов из БД
-  const [dialogState4Render, updateDialog4Render] = useState([]); // для вывода диалогов на страницу
+  const [dialogState4Render, updateDialog4Render] = useState("444"); // для вывода диалогов на страницу
 
-  // Получения данных (с помощью getDialogsFromServer()) и обновления состояния компонента с помощью хука setDialogsData
+  // Ф-ия для получения данных и обновления состояния
   const getDialogs = async () => {
-    const arrServerDialogs = await getDialogsFromServer(); // массив диалогов из базы
-    setDialogsData(arrServerDialogs); // сохранение массива диалогов в state
+    setDialogsData(await getDialogsFromServer());
   };
-  // Получение диалогов вначале загрузки страницы
+
+  //Получение диалогов вначале загрузки страницы
   useEffect(() => {
     getDialogs();
   }, []);
-  //console.log("dialogsData = ", dialogsData);
+  console.log("state dialogsData = ", dialogsData);
+
+  const obj = dialogsData[0];
+  for (const key in obj) {
+    console.log(`${key}: ${obj[key]}`);
+  }
 
   // Обновление блока с диалогами
-  useEffect(() => {
-    console.log("Обновление блока с диалогами");
+  // useEffect(() => {
+  //   //console.log("Обновление блока с диалогами");
+  //   console.log("state dialogsData 2 = ", dialogsData[0]);
 
-    const interval = setInterval(() => {
-      updateDialog4Render([]);
-      console.log("dialogState4Render >>", dialogState4Render);
-    }, 5000);
+  //   let i = 0;
+  //   const interval = setInterval(() => {
+  //     updateDialog4Render(dialogsData[0][i]);
+  //     i++;
+  //   }, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, [dialogsData]);
 
   return (
     <div className="Dating">
@@ -78,7 +86,10 @@ const Dating = () => {
           )}
         </div>
       )}
-      <div className="Dating__Dialog"></div>
+      <div className="Dating__Dialog">
+        {/*isProgressLoaded && <Dialog text={dialogState4Render} />*/}
+        <Dialog message={dialogState4Render} direction="left" />
+      </div>
       <div className="Dating__Actor--right">
         <Head />
       </div>
