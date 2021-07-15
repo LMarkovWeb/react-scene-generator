@@ -36,8 +36,7 @@ const Dating = () => {
   const [isProgressLoaded, setProgress] = useState(false);
 
   const [dialogsData, setDialogsData] = useState([]); // для хранения массива диалогов из БД
-  const [dialogState4Render, updateDialog4Render] = useState("444"); // для вывода диалогов на страницу
-
+  const [dialogState4Render, updateDialog4Render] = useState([]); // для вывода диалогов на страницу
   // Ф-ия для получения данных и обновления состояния
   const getDialogs = async () => {
     setDialogsData(await getDialogsFromServer());
@@ -47,26 +46,17 @@ const Dating = () => {
   useEffect(() => {
     getDialogs();
   }, []);
-  console.log("state dialogsData = ", dialogsData);
 
-  const obj = dialogsData[0];
-  for (const key in obj) {
-    console.log(`${key}: ${obj[key]}`);
-  }
+    useEffect(() => {
+        if(Boolean(dialogsData.length) && dialogsData.length !== dialogState4Render.length) {
+            const newDialogsForRender = [dialogsData[dialogState4Render.length], ...dialogState4Render]
 
-  // Обновление блока с диалогами
-  // useEffect(() => {
-  //   //console.log("Обновление блока с диалогами");
-  //   console.log("state dialogsData 2 = ", dialogsData[0]);
+            setTimeout(() => {
+                updateDialog4Render(newDialogsForRender)
+            }, 2000)
+        }
 
-  //   let i = 0;
-  //   const interval = setInterval(() => {
-  //     updateDialog4Render(dialogsData[0][i]);
-  //     i++;
-  //   }, 5000);
-
-  //   return () => clearInterval(interval);
-  // }, [dialogsData]);
+    }, [dialogsData, dialogState4Render])
 
   return (
     <div className="Dating">
@@ -87,8 +77,13 @@ const Dating = () => {
         </div>
       )}
       <div className="Dating__Dialog">
-        {/*isProgressLoaded && <Dialog text={dialogState4Render} />*/}
-        <Dialog message={dialogState4Render} direction="left" />
+          {Boolean(dialogState4Render.length) && dialogState4Render.map((dialog) => {
+              return (
+                  <div>
+                      {Boolean(dialog.length) && dialog.map((sentence) => <Dialog key={sentence} message={sentence} direction="left" />)}
+                  </div>
+              )
+          })}
       </div>
       <div className="Dating__Actor--right">
         <Head />

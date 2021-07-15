@@ -10,7 +10,19 @@ const getDialogsFromServer = async () => {
       });
     });
 
-  return arr;
+    if(Boolean(arr.length)) {
+        const obj = arr[0];
+
+        let dialogs = [];
+
+        for (const key in obj) {
+            dialogs.push(obj[key])
+        }
+
+        return dialogs;
+
+    }
+
 };
 
 export { getDialogsFromServer };
