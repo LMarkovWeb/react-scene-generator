@@ -10,19 +10,21 @@ const getDialogsFromServer = async () => {
       });
     });
 
-    if(Boolean(arr.length)) {
-        const obj = arr[0];
+  console.log("arr = ", arr);
 
-        let dialogs = [];
+  if (Boolean(arr.length)) {
+    const obj = arr[0];
 
-        for (const key in obj) {
-            dialogs.push(obj[key])
-        }
+    let dialogs = [];
 
-        return dialogs;
-
+    for (const key in obj) {
+      !!obj[key][0] && dialogs.push(obj[key][0]);
+      !!obj[key][1] && dialogs.push(obj[key][1]);
     }
 
+    console.log("dialogs = ", dialogs);
+    return dialogs;
+  }
 };
 
 export { getDialogsFromServer };

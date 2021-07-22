@@ -47,16 +47,21 @@ const Dating = () => {
     getDialogs();
   }, []);
 
-    useEffect(() => {
-        if(Boolean(dialogsData.length) && dialogsData.length !== dialogState4Render.length) {
-            const newDialogsForRender = [dialogsData[dialogState4Render.length], ...dialogState4Render]
+  useEffect(() => {
+    if (
+      Boolean(dialogsData.length) &&
+      dialogsData.length !== dialogState4Render.length
+    ) {
+      const newDialogsForRender = [
+        ...dialogState4Render,
+        dialogsData[dialogState4Render.length],
+      ];
 
-            setTimeout(() => {
-                updateDialog4Render(newDialogsForRender)
-            }, 2000)
-        }
-
-    }, [dialogsData, dialogState4Render])
+      setTimeout(() => {
+        updateDialog4Render(newDialogsForRender);
+      }, 4000);
+    }
+  }, [dialogsData, dialogState4Render]);
 
   return (
     <div className="Dating">
@@ -77,12 +82,15 @@ const Dating = () => {
         </div>
       )}
       <div className="Dating__Dialog">
-          {Boolean(dialogState4Render.length) && dialogState4Render.map((dialog) => {
-              return (
-                  <div>
-                      {Boolean(dialog.length) && dialog.map((sentence) => <Dialog key={sentence} message={sentence} direction="left" />)}
-                  </div>
-              )
+        {/*console.log("dialogState4Render =>", dialogState4Render)*/}
+        {isProgressLoaded &&
+          Boolean(dialogState4Render.length) &&
+          dialogState4Render.map((dialog, i) => {
+            console.log("i =>", i);
+            let gender = (i + 1) % 2 !== 0 ? "m" : "w";
+            return (
+              <>{!!dialog && <Dialog key={dialog} mes={dialog} g={gender} />}</>
+            );
           })}
       </div>
       <div className="Dating__Actor--right">

@@ -1,16 +1,15 @@
 import React from "react";
 import "./style.scss";
 
-const Dialog = ({ message, direction }) => {
+const Dialog = ({ mes, g }) => {
+  const bgrdC = g === "m" ? "#e7f5ff" : "#fdf3f3";
+  const floatType = g === "m" ? "left" : "right";
   return (
-    <div class="container">
-      <div class="arrow">
-        <div class="outer"></div>
-        <div class="inner"></div>
-      </div>
-      <div class="message-body">
-        <p>{message}</p>
-      </div>
+    <div
+      className="message-body"
+      style={{ backgroundColor: bgrdC, float: floatType }}
+    >
+      {mes}
     </div>
   );
 };
