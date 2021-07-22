@@ -32,7 +32,7 @@ export default function LinearBuffer({ onFinished }) {
   React.useEffect(() => {
     const timer = setInterval(() => {
       progressRef.current();
-    }, 500);
+    }, 150);
 
     return () => {
       clearInterval(timer);

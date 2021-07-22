@@ -1,7 +1,7 @@
 /**
  * React
  */
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 /**
  * Components
  */
@@ -9,6 +9,7 @@ import Linear from "../Linear/Linear";
 import { Head } from "../Head/Head";
 import { Body } from "../Body/Body";
 import { Legs } from "../Legs/Legs";
+import { Dialog } from "../Dialog/Dialog";
 /**
  * Data
  */
@@ -17,6 +18,7 @@ import { arBodiesItemsMan, arHeadsItemsMan, arLegsItemsMan } from "../../data";
  * Services
  */
 import { getLocSt } from "../../services/localstorage";
+import { getDialogsFromServer } from "../../services/dialogs";
 /**
  * Context
  */
@@ -26,30 +28,40 @@ import { StoreContext } from "../../context/storeContext";
  */
 import "./style.scss";
 
-const dialogs = {
-  1: {
-    1: "Привет, я горячий сексхазбент",
-    2: "&#128513; &#128513; ахах) это кто? аха сексхазбент - это зачет)",
-    3: "У меня есть интересная книжка, хочешь почитать?",
-    4: "Что за книжка? Познавательная?",
-    5: "Конечно! Хочешь почитаю тебе на ночь?",
-    6: "Ну раз познавательная, то это всегда актуально",
-    7: "У меня, вообще, замечательная библиотека, могу как нибуть показать &#128521;",
-  },
-  2: {
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
-    6: "",
-  },
-};
-
+/**
+ * Component Dating
+ */
 const Dating = () => {
   const { state } = useContext(StoreContext);
   const [isProgressLoaded, setProgress] = useState(false);
-  //console.log("Файл Dating.js, state >> ", state);
+
+  const [dialogsData, setDialogsData] = useState([]); // для хранения массива диалогов из БД
+  const [dialogState4Render, updateDialog4Render] = useState([]); // для вывода диалогов на страницу
+  // Ф-ия для получения данных и обновления состояния
+  const getDialogs = async () => {
+    setDialogsData(await getDialogsFromServer());
+  };
+
+  //Получение диалогов вначале загрузки страницы
+  useEffect(() => {
+    getDialogs();
+  }, []);
+
+  useEffect(() => {
+    if (
+      Boolean(dialogsData.length) &&
+      dialogsData.length !== dialogState4Render.length
+    ) {
+      const newDialogsForRender = [
+        ...dialogState4Render,
+        dialogsData[dialogState4Render.length],
+      ];
+
+      setTimeout(() => {
+        updateDialog4Render(newDialogsForRender);
+      }, 4000);
+    }
+  }, [dialogsData, dialogState4Render]);
 
   return (
     <div className="Dating">
@@ -69,7 +81,18 @@ const Dating = () => {
           )}
         </div>
       )}
-      <div className="Dating__Dialog"></div>
+      <div className="Dating__Dialog">
+        {/*console.log("dialogState4Render =>", dialogState4Render)*/}
+        {isProgressLoaded &&
+          Boolean(dialogState4Render.length) &&
+          dialogState4Render.map((dialog, i) => {
+            console.log("i =>", i);
+            let gender = (i + 1) % 2 !== 0 ? "m" : "w";
+            return (
+              <>{!!dialog && <Dialog key={dialog} mes={dialog} g={gender} />}</>
+            );
+          })}
+      </div>
       <div className="Dating__Actor--right">
         <Head />
       </div>

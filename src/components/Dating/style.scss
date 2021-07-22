@@ -19,6 +19,7 @@
 
   &__Dialog {
     grid-area: Dating__Dialog;
+    overflow-y: scroll;
   }
 
   &__Actor--right {
