@@ -10,8 +10,6 @@ const getDialogsFromServer = async () => {
       });
     });
 
-  console.log("arr = ", arr);
-
   if (Boolean(arr.length)) {
     const obj = arr[0];
 
@@ -22,7 +20,6 @@ const getDialogsFromServer = async () => {
       !!obj[key][1] && dialogs.push(obj[key][1]);
     }
 
-    console.log("dialogs = ", dialogs);
     return dialogs;
   }
 };

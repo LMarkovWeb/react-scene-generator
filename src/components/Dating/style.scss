@@ -1,12 +1,20 @@
 .Dating {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 50px 500px;
+  grid-template-rows: 50px 700px;
   grid-template-areas: "Dating__linear Dating__linear Dating__linear" "Dating__Actor--left  Dating__Dialog Dating_Actor--right";
+
   background-image: url(./img/bgrd/bgrd_1.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
+
+  background-color: #f2f6fb;
+  margin: 0 auto;
+  max-width: 1200px;
+  border-radius: 20px;
+
+  overflow: hidden;
 
   &__linear {
     grid-area: Dating__linear;
@@ -15,14 +23,30 @@
 
   &__Actor--left {
     grid-area: Dating__Actor--left;
+    position: relative;
+
+    .Legs {
+      left: 17px;
+      top: 198px;
+      position: absolute;
+    }
   }
 
   &__Dialog {
     grid-area: Dating__Dialog;
-    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 30px 0 90px;
+    background-color: rgba(255, 255, 255, 0.5);
   }
 
   &__Actor--right {
     grid-area: Dating_Actor--right;
+    position: relative;
+
+    .Legs {
+      left: 14px;
+      top: 185px;
+      position: absolute;
+    }
   }
 }

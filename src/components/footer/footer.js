@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <footer className="Footer">
       <section
-        class="ya-share2"
+        className="ya-share2"
         data-curtain
         data-size="l"
         data-shape="round"
