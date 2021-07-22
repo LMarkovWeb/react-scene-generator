@@ -14,6 +14,7 @@ import { Dialog } from "../Dialog/Dialog";
  * Data
  */
 import { arBodiesItemsMan, arHeadsItemsMan, arLegsItemsMan } from "../../data";
+
 /**
  * Services
  */
@@ -82,11 +83,9 @@ const Dating = () => {
         </div>
       )}
       <div className="Dating__Dialog">
-        {/*console.log("dialogState4Render =>", dialogState4Render)*/}
         {isProgressLoaded &&
           Boolean(dialogState4Render.length) &&
           dialogState4Render.map((dialog, i) => {
-            console.log("i =>", i);
             let gender = (i + 1) % 2 !== 0 ? "m" : "w";
             return (
               <>{!!dialog && <Dialog key={dialog} mes={dialog} g={gender} />}</>
@@ -94,7 +93,15 @@ const Dating = () => {
           })}
       </div>
       <div className="Dating__Actor--right">
-        <Head />
+        {isProgressLoaded && (
+          <Head fillColor="#FFDFC4" svgCode={arHeadsItemsMan[0].preview} />
+        )}
+        {isProgressLoaded && (
+          <Body fillColor="#FFDFC4" svgCode={arBodiesItemsMan[0].preview} />
+        )}
+        {isProgressLoaded && (
+          <Legs fillColor="#FFDFC4" svgCode={arLegsItemsMan[0].preview} />
+        )}
       </div>
     </div>
   );

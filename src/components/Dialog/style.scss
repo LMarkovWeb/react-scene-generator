@@ -1,13 +1,15 @@
-.message-body {
-  width: auto;
-  height: auto;
-  border: 1px solid #ccc;
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  padding: 8px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  margin: 6px 0;
+.message {
+  height: 52px;
+
+  &__body {
+    width: 61%;
+    height: auto;
+    border: 1px solid #fff;
+    padding: 12px 0px 12px 16px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    margin: 7px 20px;
+  }
 }

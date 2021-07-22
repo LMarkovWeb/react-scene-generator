@@ -75,7 +75,6 @@ const SceneGenerator = () => {
     setLegs(newData);
     dispatch({ action: ACTION.UPDATE_LEGS, data: newData });
   };
-
   const updateColor = (newData) => {
     setSkinColor(newData);
     dispatch({ action: ACTION.UPDATE_COLOR, data: newData });
@@ -132,7 +131,7 @@ const SceneGenerator = () => {
         />
       </aside>
       <div className="SceneGenerator__nav">
-        <Nav />
+        <Nav gender={gender} />
       </div>
     </div>
   );
